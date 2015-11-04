@@ -12,7 +12,7 @@
 
 @interface InventoryCell : UITableViewCell
 
-@property(weak, nonatomic)id <InventoryCellDelegate> delegate;
+@property(weak, nonatomic)id<InventoryCellDelegate> delegate;
 
 @end
 

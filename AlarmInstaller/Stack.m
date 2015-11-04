@@ -15,6 +15,17 @@
 
 @implementation Stack
 
+
+
+//save method given to me by ben on 11-2-15
+-(void)save{
+    if ([self.managedObjectContext hasChanges]) {
+        [self.managedObjectContext save:nil];
+    }
+}
+
+
+
 + (Stack *)sharedInstance {
     static Stack *sharedInstance = nil;
     static dispatch_once_t onceToken;

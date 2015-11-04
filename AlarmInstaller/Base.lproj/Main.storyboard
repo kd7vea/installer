@@ -170,7 +170,9 @@
                             <outlet property="delegate" destination="Msd-n9-Wf4" id="eE4-7M-FAi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Inventory" id="OGA-CJ-0oE"/>
+                    <navigationItem key="navigationItem" title="Inventory" id="OGA-CJ-0oE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="b4E-Ga-lyp"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0am-xZ-TBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

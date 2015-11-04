@@ -27,6 +27,7 @@
 		D08829491BE535FA001DFB48 /* PartsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829481BE535FA001DFB48 /* PartsCell.m */; settings = {ASSET_TAGS = (); }; };
 		D088294C1BE54AFC001DFB48 /* InventoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D088294B1BE54AFC001DFB48 /* InventoryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D088294F1BE54FDC001DFB48 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D088294E1BE54FDC001DFB48 /* InventoryCell.m */; settings = {ASSET_TAGS = (); }; };
+		D08829521BE9B994001DFB48 /* InventoryListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829511BE9B994001DFB48 /* InventoryListDataSource.m */; settings = {ASSET_TAGS = (); }; };
 		D0CD95691BC9A1FF005BF6C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD95681BC9A1FF005BF6C3 /* main.m */; };
 		D0CD956C1BC9A1FF005BF6C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD956B1BC9A1FF005BF6C3 /* AppDelegate.m */; };
 		D0CD956F1BC9A1FF005BF6C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD956E1BC9A1FF005BF6C3 /* ViewController.m */; };
@@ -94,6 +95,8 @@
 		D088294B1BE54AFC001DFB48 /* InventoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryTableViewController.m; path = ../InventoryTableViewController.m; sourceTree = "<group>"; };
 		D088294D1BE54FDC001DFB48 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		D088294E1BE54FDC001DFB48 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
+		D08829501BE9B994001DFB48 /* InventoryListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryListDataSource.h; sourceTree = "<group>"; };
+		D08829511BE9B994001DFB48 /* InventoryListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryListDataSource.m; sourceTree = "<group>"; };
 		D0CD95641BC9A1FF005BF6C3 /* AlarmInstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmInstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD95681BC9A1FF005BF6C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0CD956A1BC9A1FF005BF6C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				D088290A1BD9C639001DFB48 /* InventoryItem.m */,
 				D08828F61BD8751E001DFB48 /* InventoryController.h */,
 				D08828F71BD8751E001DFB48 /* InventoryController.m */,
+				D08829501BE9B994001DFB48 /* InventoryListDataSource.h */,
+				D08829511BE9B994001DFB48 /* InventoryListDataSource.m */,
 				D088294A1BE54AFC001DFB48 /* InventoryTableViewController.h */,
 				D088294B1BE54AFC001DFB48 /* InventoryTableViewController.m */,
 			);
@@ -401,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D088286B1BD70CD8001DFB48 /* Stack.m in Sources */,
+				D08829521BE9B994001DFB48 /* InventoryListDataSource.m in Sources */,
 				D0CD956F1BC9A1FF005BF6C3 /* ViewController.m in Sources */,
 				D088294F1BE54FDC001DFB48 /* InventoryCell.m in Sources */,
 				D088294C1BE54AFC001DFB48 /* InventoryTableViewController.m in Sources */,
