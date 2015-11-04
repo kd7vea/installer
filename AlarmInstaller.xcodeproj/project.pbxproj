@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D088284A1BD29768001DFB48 /* .xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D08828481BD29768001DFB48 /* .xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		D08828651BD42A9E001DFB48 /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08828641BD42A9E001DFB48 /* ServiceController.m */; settings = {ASSET_TAGS = (); }; };
 		D088286B1BD70CD8001DFB48 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = D088286A1BD70CD8001DFB48 /* Stack.m */; settings = {ASSET_TAGS = (); }; };
 		D08828F81BD8751E001DFB48 /* InventoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08828F71BD8751E001DFB48 /* InventoryController.m */; settings = {ASSET_TAGS = (); }; };
@@ -22,6 +21,12 @@
 		D08829211BE1C15A001DFB48 /* LabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829201BE1C15A001DFB48 /* LabelCell.m */; settings = {ASSET_TAGS = (); }; };
 		D08829241BE1C19D001DFB48 /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829231BE1C19D001DFB48 /* TextViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		D08829281BE2F573001DFB48 /* serviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829271BE2F573001DFB48 /* serviceTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D088293D1BE51F85001DFB48 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D088293B1BE51F85001DFB48 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		D08829401BE52A71001DFB48 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D088293F1BE52A70001DFB48 /* ButtonCell.m */; settings = {ASSET_TAGS = (); }; };
+		D08829431BE53497001DFB48 /* PartsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829421BE53497001DFB48 /* PartsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D08829491BE535FA001DFB48 /* PartsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08829481BE535FA001DFB48 /* PartsCell.m */; settings = {ASSET_TAGS = (); }; };
+		D088294C1BE54AFC001DFB48 /* InventoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D088294B1BE54AFC001DFB48 /* InventoryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D088294F1BE54FDC001DFB48 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D088294E1BE54FDC001DFB48 /* InventoryCell.m */; settings = {ASSET_TAGS = (); }; };
 		D0CD95691BC9A1FF005BF6C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD95681BC9A1FF005BF6C3 /* main.m */; };
 		D0CD956C1BC9A1FF005BF6C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD956B1BC9A1FF005BF6C3 /* AppDelegate.m */; };
 		D0CD956F1BC9A1FF005BF6C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD956E1BC9A1FF005BF6C3 /* ViewController.m */; };
@@ -50,7 +55,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D08828491BD29768001DFB48 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D08828631BD42A9E001DFB48 /* ServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
 		D08828641BD42A9E001DFB48 /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
 		D08828691BD70CD8001DFB48 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
@@ -79,6 +83,17 @@
 		D08829231BE1C19D001DFB48 /* TextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
 		D08829261BE2F573001DFB48 /* serviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serviceTableViewController.h; sourceTree = "<group>"; };
 		D08829271BE2F573001DFB48 /* serviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serviceTableViewController.m; sourceTree = "<group>"; };
+		D088293C1BE51F85001DFB48 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D088293E1BE52A70001DFB48 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
+		D088293F1BE52A70001DFB48 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
+		D08829411BE53497001DFB48 /* PartsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsTableViewController.h; sourceTree = "<group>"; };
+		D08829421BE53497001DFB48 /* PartsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsTableViewController.m; sourceTree = "<group>"; };
+		D08829471BE535FA001DFB48 /* PartsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsCell.h; sourceTree = "<group>"; };
+		D08829481BE535FA001DFB48 /* PartsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsCell.m; sourceTree = "<group>"; };
+		D088294A1BE54AFC001DFB48 /* InventoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryTableViewController.h; path = ../InventoryTableViewController.h; sourceTree = "<group>"; };
+		D088294B1BE54AFC001DFB48 /* InventoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryTableViewController.m; path = ../InventoryTableViewController.m; sourceTree = "<group>"; };
+		D088294D1BE54FDC001DFB48 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
+		D088294E1BE54FDC001DFB48 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
 		D0CD95641BC9A1FF005BF6C3 /* AlarmInstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmInstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD95681BC9A1FF005BF6C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0CD956A1BC9A1FF005BF6C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +146,8 @@
 				D088290A1BD9C639001DFB48 /* InventoryItem.m */,
 				D08828F61BD8751E001DFB48 /* InventoryController.h */,
 				D08828F71BD8751E001DFB48 /* InventoryController.m */,
+				D088294A1BE54AFC001DFB48 /* InventoryTableViewController.h */,
+				D088294B1BE54AFC001DFB48 /* InventoryTableViewController.m */,
 			);
 			name = inventory;
 			sourceTree = "<group>";
@@ -153,8 +170,10 @@
 			children = (
 				D08829161BDBDD06001DFB48 /* Service+CoreDataProperties.h */,
 				D08829171BDBDD06001DFB48 /* Service+CoreDataProperties.m */,
-				D08829271BE2F573001DFB48 /* serviceTableViewController.m */,
 				D08829261BE2F573001DFB48 /* serviceTableViewController.h */,
+				D08829271BE2F573001DFB48 /* serviceTableViewController.m */,
+				D08829411BE53497001DFB48 /* PartsTableViewController.h */,
+				D08829421BE53497001DFB48 /* PartsTableViewController.m */,
 				D08829051BD9C639001DFB48 /* Service.h */,
 				D08829061BD9C639001DFB48 /* Service.m */,
 				D088291C1BE1AA46001DFB48 /* ServiceTableViewDataSource.h */,
@@ -172,6 +191,12 @@
 				D08829201BE1C15A001DFB48 /* LabelCell.m */,
 				D08829221BE1C19D001DFB48 /* TextViewCell.h */,
 				D08829231BE1C19D001DFB48 /* TextViewCell.m */,
+				D088293E1BE52A70001DFB48 /* ButtonCell.h */,
+				D088293F1BE52A70001DFB48 /* ButtonCell.m */,
+				D08829471BE535FA001DFB48 /* PartsCell.h */,
+				D08829481BE535FA001DFB48 /* PartsCell.m */,
+				D088294D1BE54FDC001DFB48 /* InventoryCell.h */,
+				D088294E1BE54FDC001DFB48 /* InventoryCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -204,7 +229,7 @@
 				D0CD956D1BC9A1FF005BF6C3 /* ViewController.h */,
 				D0CD956E1BC9A1FF005BF6C3 /* ViewController.m */,
 				D0CD95701BC9A1FF005BF6C3 /* Main.storyboard */,
-				D08828481BD29768001DFB48 /* .xcdatamodeld */,
+				D088293B1BE51F85001DFB48 /* Model.xcdatamodeld */,
 				D08829251BE1C2E1001DFB48 /* Custom Cells */,
 				D08829131BD9CB49001DFB48 /* inventory */,
 				D08829141BD9CB87001DFB48 /* mileage */,
@@ -377,9 +402,13 @@
 			files = (
 				D088286B1BD70CD8001DFB48 /* Stack.m in Sources */,
 				D0CD956F1BC9A1FF005BF6C3 /* ViewController.m in Sources */,
+				D088294F1BE54FDC001DFB48 /* InventoryCell.m in Sources */,
+				D088294C1BE54AFC001DFB48 /* InventoryTableViewController.m in Sources */,
 				D08828651BD42A9E001DFB48 /* ServiceController.m in Sources */,
 				D088290E1BD9C639001DFB48 /* Service.m in Sources */,
+				D08829491BE535FA001DFB48 /* PartsCell.m in Sources */,
 				D088290B1BD9C639001DFB48 /* Mileage+CoreDataProperties.m in Sources */,
+				D08829401BE52A71001DFB48 /* ButtonCell.m in Sources */,
 				D088291E1BE1AA46001DFB48 /* ServiceTableViewDataSource.m in Sources */,
 				D088290F1BD9C639001DFB48 /* InventoryItem+CoreDataProperties.m in Sources */,
 				D08829101BD9C639001DFB48 /* InventoryItem.m in Sources */,
@@ -391,7 +420,8 @@
 				D08829211BE1C15A001DFB48 /* LabelCell.m in Sources */,
 				D08829181BDBDD06001DFB48 /* Service+CoreDataProperties.m in Sources */,
 				D088290C1BD9C639001DFB48 /* Mileage.m in Sources */,
-				D088284A1BD29768001DFB48 /* .xcdatamodeld in Sources */,
+				D088293D1BE51F85001DFB48 /* Model.xcdatamodeld in Sources */,
+				D08829431BE53497001DFB48 /* PartsTableViewController.m in Sources */,
 				D08829281BE2F573001DFB48 /* serviceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,13 +671,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D08828481BD29768001DFB48 /* .xcdatamodeld */ = {
+		D088293B1BE51F85001DFB48 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D08828491BD29768001DFB48 /* Model.xcdatamodel */,
+				D088293C1BE51F85001DFB48 /* Model.xcdatamodel */,
 			);
-			currentVersion = D08828491BD29768001DFB48 /* Model.xcdatamodel */;
-			path = .xcdatamodeld;
+			currentVersion = D088293C1BE51F85001DFB48 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
