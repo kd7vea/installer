@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InventoryController.h"
 
 @interface InventoryTableViewController : UITableViewController
 

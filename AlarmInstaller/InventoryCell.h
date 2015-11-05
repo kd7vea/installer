@@ -10,15 +10,15 @@
 
 @protocol InventoryCellDelegate;
 
-@interface InventoryCell : UITableViewCell
+@interface InventoryCell : UITableViewCell <UITextFieldDelegate>
 
-@property(weak, nonatomic)id<InventoryCellDelegate> delegate;
+@property(weak, nonatomic) id<InventoryCellDelegate> delegate;
 
 @end
 
-@protocol InventoryCellDelegate; id<NSObject>
+@protocol InventoryCellDelegate <NSObject>
 
--(void)textChangedInCell:(InventoryCell *)cell;
--(void)textEnteredInCell:(InventoryCell *)cell;
+- (void)textChangedInCell:(InventoryCell *)cell;
+- (void)textEnteredInCell:(InventoryCell *)cell;
 
 @end

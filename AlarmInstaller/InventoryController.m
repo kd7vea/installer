@@ -12,6 +12,14 @@
 
 @implementation InventoryController
 
++ (InventoryController *)sharedInstance {
+    static InventoryController *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [InventoryController new];
+    });
+    return sharedInstance;
+}
 //-(NSArray *)inventoryInfo{
 
 
@@ -177,7 +185,9 @@
 
 //CRUD Read Method
 
-
+-(void) updateWithPartName: (NSString *)name toAmount:(NSNumber *)number {
+#warning I need functionality here!
+}
 
 //CRUD Update Method
 -(void)save{

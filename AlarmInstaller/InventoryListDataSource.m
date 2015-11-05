@@ -10,32 +10,22 @@
 #import "InventoryCell.h"
 @implementation InventoryListDataSource
 
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-InventoryCell *cell = [tableView.]
-}
+//-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+//#warning get correct reuse id
+//    InventoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    
+//    cell.delegate =self;
+//}
+//bens code
+//-(void)tableView...  cellforRow {
+//    InventoryCell *cell = [table...]
+//    cell.delegate = self;
+//}
 
--(void)tableView...  cellforRow {
-    InventoryCell *cell = [table...]
-    cell.delegate = self;
-}
 
 
--(void)TextEnteredInCell:(InventoryCell *)cell{
-    NSIndexPath *indexPath = [self.tableView indexPathforCell:cell];
-    inventoryList inventoryItem = indexPath.row;
-    self.inventoryDictionary[@(inventoryItem)] = cell.textField.text;
-}
 
--(IBAction)save:(id)sender{
-    for (NSNumber *key in self.inventoryDictionary) {
-        inventoryList item = key.integerValue;
-        NSString *partName = [self inventorypartForItem: item];
-        NSString *partAmountString = self.inventoryDictionary[key];
-        NSInteger partAmount = partAmountString.integerValue;
-    }
-    [[InventoryController sharedinstance] updatePartWithName:name]}
-    toAmount.partAmount
-}
+
 
     
 

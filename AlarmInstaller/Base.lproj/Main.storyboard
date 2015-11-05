@@ -134,7 +134,7 @@
         <!--Inventory-->
         <scene sceneID="gEe-jx-xHK">
             <objects>
-                <tableViewController id="Msd-n9-Wf4" sceneMemberID="viewController">
+                <tableViewController id="Msd-n9-Wf4" customClass="InventoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VTW-hc-dE2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,11 +155,17 @@
                                         </label>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="IV1-vC-vKJ">
                                             <rect key="frame" x="336" y="7" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="stepper:" destination="Msd-n9-Wf4" eventType="valueChanged" id="r6K-cJ-lE7"/>
+                                            </connections>
                                         </stepper>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06V-Xn-liD">
                                             <rect key="frame" x="452" y="6" width="97" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="quantitytTextField:" destination="Msd-n9-Wf4" eventType="editingDidEnd" id="JxK-ia-5iY"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -171,7 +177,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inventory" id="OGA-CJ-0oE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="b4E-Ga-lyp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="b4E-Ga-lyp">
+                            <connections>
+                                <action selector="save:" destination="Msd-n9-Wf4" id="ip6-bO-PPg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0am-xZ-TBr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,4 +11,7 @@
 
 @interface InventoryController : NSObject
 
+-(void) updateWithPartName: (NSString *)name toAmount:(NSNumber *)number;
++ (InventoryController *)sharedInstance;
+
 @end
