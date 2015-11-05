@@ -7,7 +7,7 @@
 //
 
 #import "InventoryTableViewController.h"
-#import "InventoryCell.h "
+#import "InventoryCell.h"
 
 typedef NS_ENUM(NSInteger, inventoryList) {
     inventoryListGoControl = 0,
@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 
 @property (nullable, nonatomic, retain) NSString *partName;
 @property (nullable, nonatomic, retain) NSNumber *quantity;
-@property (strong, nonatomic)NSInteger *count;
+@property (weak, nonatomic)NSInteger *count;
 @end
 
 @implementation InventoryTableViewController
