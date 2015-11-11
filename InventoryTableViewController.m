@@ -50,11 +50,13 @@ typedef NS_ENUM(NSInteger, inventoryList) {
     inventoryListFloodSensor
 };
 
-@interface InventoryTableViewController ()
+@interface InventoryTableViewController () <InventoryCellDelegate>
 
 @property (nullable, nonatomic, retain) NSString *partName;
 @property (nullable, nonatomic, retain) NSNumber *quantity;
 @property (assign, nonatomic)NSInteger count;
+@property (nonatomic, strong) NSDictionary *inventoryDictionary;
+
 @end
 
 @implementation InventoryTableViewController
@@ -76,152 +78,47 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 
 //TODO: Took from datasource
 -(IBAction)save:(id)sender{
-//    for (NSNumber *key in self.inventoryDictionary) {
-//        inventoryList item = key.integerValue;
-//        NSString *partName = [self inventorypartForItem: item];
-//        NSString *partAmountString = self.inventoryDictionary[key];
-//        NSInteger partAmount = partAmountString.integerValue;
-//    }
-    [[InventoryController sharedInstance] updateWithPartName:@"part" toAmount:@2];
+    for (NSNumber *key in self.inventoryDictionary) {
+        inventoryList item = key.integerValue;
+        NSString *partName = [self partNameForInventoryItem:item];
+        NSString *partAmountString = self.inventoryDictionary[key];
+        NSInteger partAmount = partAmountString.integerValue;
+        [[InventoryController sharedInstance] updateWithPartName:partName toAmount:@(partAmount)];
+    }
 }
 
-//TODO: Took from datasource
--(void)TextEnteredInCell:(InventoryCell *)cell{
+#pragma mark - Inventory Cell delegate
+- (void)textEnteredInCell:(InventoryCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     inventoryList inventoryItem = indexPath.row;
-#warning I don't have inventoryDictionary yet
-//    self.inventoryDictionary[@(inventoryItem)] = cell.textField.text;
+    NSMutableDictionary *mutableInventory = [NSMutableDictionary dictionaryWithDictionary:self.inventoryDictionary];
+    mutableInventory[@(inventoryItem)] = cell.quantity.text;
+    self.inventoryDictionary = mutableInventory;
 }
+
+- (void)textChangedInCell:(InventoryCell *)cell {
+    // Nothing for now, until we want to update while typing
+}
+
 - (IBAction)quantitytTextField:(id)sender {
 }
 
 - (IBAction)stepper:(id)sender {
 }
 
+
+#pragma mark - UITableView data source
+
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"inventoryCell"];
-    return cell;
-//    switch (indexPath.row) {
-//        case inventoryListGoControl:
-//            return [self.cellForGoControl];
-//            break;
-//        case inventoryListgc3:
-//            return [self.cellforGC3];
-//            break;
-//        case inventoryListVerizonCell:
-//            return [self.cellForVerizon];
-//            break;
-//        case inventoryListATandTCell:
-//            return [self.cellForATAndT];
-//            break;
-//        case inventoryListTHINDW:
-//            return [self.cellForRecessedDW];
-//            break;
-//        case inventoryListMotion:
-//            return [self.cellForMotion];
-//            break;
-//        case inventoryListGlassBreak:
-//            return [self.cellforGlassBreak];
-//            break;
-//        case inventoryListSmoke:
-//            return [self.cellForSmoke];
-//            break;
-//        case inventoryListCarbon:
-//            return [self.cellForCarbon];
-//            break;
-//        case inventoryListFireFighter:
-//            return [self.cellForFireFighter];
-//            break;
-//        case inventoryListMedPendant:
-//            return [self.cellForMedPendant];
-//            break;
-//        case inventoryListKeyFOB:
-//            return [self.cellForKeyFOB];
-//            break;
-//        case inventoryListSuperSwitch:
-//            return [self.cellForSuperSwitch];
-//            break;
-//        case inventoryListWirelessKeypad:
-//            return [self.cellForWirelessKeyPad];
-//            break;
-//        case inventoryListTS1Keypad:
-//            return [self.cellForTS1Keypad];
-//            break;
-//        case inventoryListGDReceiver:
-//            return [self.cellForGDReceiver];
-//            break;
-//        case inventoryList900mhzTrans:
-//            return [self.cellFor900MHZReceiver];
-//            break;
-//        case inventoryListGETakeover:
-//            return [self.cellForGETakeover];
-//            break;
-//        case inventoryListImageSensor:
-//            return [self.cellForImageSensor];
-//            break;
-//        case inventoryListHD100Camera:
-//            return [self.cellForHD100Camera];
-//            break;
-//        case inventoryListDoorLockGold:
-//            return [self.cellforDoorLockGold];
-//            break;
-//        case inventoryListDoorLockSilver:
-//            return [self.cellForDoorLockSlver];
-//            break;
-//        case inventoryListDoorLockbronze:
-//            return [self.cellForDoorLockBronze];
-//            break;
-//        case inventoryListThermostat:
-//            return [self.cellForThermostat];
-//            break;
-//        case inventoryListMyQGarage:
-//            return [self.cellForMyQGarage];
-//            break;
-//        case inventoryListMyQExtraDoor:
-//            return [self.cellFOrMyQExtraDoor];
-//            break;
-//        case inventoryListDoorBell:
-//            return [self.cellForDoorBell];
-//            break;
-//        case inventoryListLampModule:
-//            return [self.cellForLampModule];
-//            break;
-//        case inventoryListOutDoorCamera:
-//            return [self.cellForOutDoorCamera];
-//            break;
-//        case inventoryList5AmpBattery:
-//            return [self.cellFor5AmpBattery];
-//            break;
-//        case inventoryList16point5Transformer:
-//            return [self.cellFor16Point5 Transformer];
-//            break;
-//        case inventoryListYardSign:
-//            return [self.cellForYardSign];
-//            break;
-//        case inventoryListSignLights:
-//            return [self.cellForSignLights];
-//            break;
-//        case inventoryListDecals:
-//            return [self.cellForDecals];
-//            break;
-//        case inventoryListTakeOverKit;
-//            return [self.cellForTakeOverKit];
-//            break;
-//        case inventoryListFloodSensor:
-//            return [self.cellForFlood];
-//        default:NSLog(@"No Case Found");
-//            return nil;
-//            
-//    }
-}
-
--(UITableViewCell *)cellForState {
     InventoryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"inventoryCell"];
-    cell.text = @" ";
-    self.state = cell.textField.text;
+    inventoryList item = indexPath.row;
+    NSString *partName = [self partNameForInventoryItem:item];
+    cell.partLabel.text = partName;
+    
+    // TODO: get quantity from core data for part with partName
+    // TODO: set the quantity textField.text to quantity from core data
     return cell;
 }
-
 
 #pragma mark - Table view data source
 
@@ -229,6 +126,121 @@ typedef NS_ENUM(NSInteger, inventoryList) {
     return 37;
 }
 
+
+- (NSString *)partNameForInventoryItem:(inventoryList)item {
+    switch (item) {
+        case inventoryListGoControl:
+            return @"GO Control";
+            break;
+        case inventoryListgc3:
+            return @"GC3";
+            break;
+        case inventoryListVerizonCell:
+            return @"Verizon";
+            break;
+        case inventoryListATandTCell:
+            return @"AT&T";
+            break;
+        case inventoryListTHINDW:
+            return @"Thin DW";
+            break;
+        case inventoryListrecessedDW:
+            return @"Recessed DW";
+            break;
+        case inventoryListMotion:
+            return @"Motion";
+            break;
+        case inventoryListGlassBreak:
+            return @"GlassBreak";
+            break;
+        case inventoryListSmoke:
+            return @"Smoke";
+            break;
+        case inventoryListCarbon:
+            return @"Carbon";
+            break;
+        case inventoryListFireFighter:
+            return @"Fire Fighter";
+            break;
+        case inventoryListMedPendant:
+            return @"Med Pendant";
+            break;
+        case inventoryListKeyFOB:
+            return @"Key FOB";
+            break;
+        case inventoryListSuperSwitch:
+            return @"Super Switch";
+            break;
+        case inventoryListWirelessKeypad:
+            return @"Wireless KeyPad";
+            break;
+        case inventoryListTS1Keypad:
+            return @"TS1 Keypad";
+            break;
+        case inventoryListGDReceiver:
+            return @"GD Receiver";
+            break;
+        case inventoryList900mhzTrans:
+            return @"900mhz Receiver";
+            break;
+        case inventoryListGETakeover:
+            return @"GE Takeover";
+            break;
+        case inventoryListImageSensor:
+            return @"Image Sensor";
+            break;
+        case inventoryListHD100Camera:
+            return @"HD100 Camera";
+            break;
+        case inventoryListDoorLockGold:
+            return @"Door Lock Gold";
+            break;
+        case inventoryListDoorLockSilver:
+            return @"Door Lock Silver";
+            break;
+        case inventoryListDoorLockbronze:
+            return @"Door Lock Bronze";
+            break;
+        case inventoryListThermostat:
+            return @"Thermostat";
+            break;
+        case inventoryListMyQGarage:
+            return @"MyQ Garage";
+            break;
+        case inventoryListMyQExtraDoor:
+            return @"MyQ Extra Door";
+            break;
+        case inventoryListDoorBell:
+            return @"DoorBell";
+            break;
+        case inventoryListLampModule:
+            return @"Lamp Module";
+            break;
+        case inventoryListOutDoorCamera:
+            return @"Out Door Camera";
+            break;
+        case inventoryList5AmpBattery:
+            return @"5 Amp Battery";
+            break;
+        case inventoryList16point5Transformer:
+            return @"16.5 Transformer";
+            break;
+        case inventoryListYardSign:
+            return @"Yard Sign";
+            break;
+        case inventoryListSignLights:
+            return @"cell For Sign Lights";
+            break;
+        case inventoryListDecals:
+            return @"Decals";
+            break;
+        case inventoryListTakeOverKit:
+            return @"TakeOver Kit";
+            break;
+        case inventoryListFloodSensor:
+            return @"Flood Sensor";
+    }
+}
 
 
 /*
@@ -247,7 +259,7 @@ typedef NS_ENUM(NSInteger, inventoryList) {
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 */
 

@@ -94,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="1134" y="-72"/>
         </scene>
-        <!--Service Record-->
+        <!--Service Records-->
         <scene sceneID="clR-ck-zoV">
             <objects>
                 <tableViewController id="i6G-9B-xRg" sceneMemberID="viewController">
@@ -103,23 +103,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviveNumberCell" rowHeight="44" id="jAj-ot-T63" customClass="ServiceNumberCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceNumberCell" textLabel="nn6-Bc-UDs" rowHeight="44" style="IBUITableViewCellStyleDefault" id="jAj-ot-T63" customClass="ServiceNumberCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jAj-ot-T63" id="llL-cy-oES">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1o-h1-08P">
-                                            <rect key="frame" x="8" y="5" width="310" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Service number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nn6-Bc-UDs">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="serviceNumberTextField" destination="a1o-h1-08P" id="5rW-JJ-tfa"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -128,7 +127,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Service Record" id="6Eq-al-GJH">
+                    <navigationItem key="navigationItem" title="Service Records" id="6Eq-al-GJH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mx6-3R-YVc">
                             <connections>
                                 <segue destination="MMc-cf-gnP" kind="show" id="2Oo-DI-RoX"/>
@@ -230,11 +229,11 @@
                                     <outlet property="textField" destination="ZdU-tD-Ahj" id="brp-01-BSt"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textViewCell" rowHeight="120" id="UO3-6A-LaG" customClass="TextViewCell">
-                                <rect key="frame" x="0.0" y="136" width="600" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textViewCell" rowHeight="244" id="UO3-6A-LaG" customClass="TextViewCell">
+                                <rect key="frame" x="0.0" y="136" width="600" height="244"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UO3-6A-LaG" id="1IY-ZH-Qgr">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="243"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-yq-FiA">
@@ -257,7 +256,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonCell" id="y6t-7J-ev6" customClass="ButtonCell">
-                                <rect key="frame" x="0.0" y="256" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="380" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6t-7J-ev6" id="unb-Gm-H1Z">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>

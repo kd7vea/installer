@@ -7,8 +7,8 @@
 //
 
 #import "ServiceNumberTableViewController.h"
-#import "ServiceNumberCell.h"
 #import "ServiceEntry.h"
+#import "ServiceController.h"
 
 @interface ServiceNumberTableViewController ()
 @property (nullable, nonatomic, retain) NSNumber *serviceNumber;
@@ -34,18 +34,10 @@
     return 0;
 }
 
-- (UITableViewCell *)serviceNumberCell {
-    ServiceNumberCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"serviceNumbercell"];
-    cell.didChangeText = ^(NSNumber *text) {
-        self.serviceNumber = text;
-    };
-    cell.serviceNumberTextField.placeholder = @"Please Enter a Service Number";
-        if (self.serviceNumber) {
-        cell.serviceNumberTextField.text = [NSNumber numberWithInteger:[cell.text intValue]];
-            
-    } else {
-        cell.serviceNumberTextField.text = nil;
-    }
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"serviceNumbercell"];
+    Service *service = [ServiceController sharedInstance].services[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", service.serviceNumber];
     return cell;
 }
 
