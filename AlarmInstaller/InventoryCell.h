@@ -13,6 +13,8 @@
 @interface InventoryCell : UITableViewCell <UITextFieldDelegate>
 
 @property(weak, nonatomic) id<InventoryCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITextField *quantity;
+@property (weak, nonatomic) IBOutlet UILabel *partLabel;
 
 @end
 

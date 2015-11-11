@@ -215,8 +215,12 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 //    }
 }
 
-
-
+-(UITableViewCell *)cellForState {
+    InventoryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"inventoryCell"];
+    cell.text = @" ";
+    self.state = cell.textField.text;
+    return cell;
+}
 
 
 #pragma mark - Table view data source

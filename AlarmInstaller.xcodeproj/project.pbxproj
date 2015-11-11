@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D07BE5751BEC4888001CF69B /* ServiceNumberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BE5741BEC4888001CF69B /* ServiceNumberTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D07BE57C1BEC4E93001CF69B /* ServiceNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BE57B1BEC4E93001CF69B /* ServiceNumberCell.m */; settings = {ASSET_TAGS = (); }; };
 		D08828651BD42A9E001DFB48 /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08828641BD42A9E001DFB48 /* ServiceController.m */; settings = {ASSET_TAGS = (); }; };
 		D088286B1BD70CD8001DFB48 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = D088286A1BD70CD8001DFB48 /* Stack.m */; settings = {ASSET_TAGS = (); }; };
 		D08828F81BD8751E001DFB48 /* InventoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08828F71BD8751E001DFB48 /* InventoryController.m */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D07BE5731BEC4888001CF69B /* ServiceNumberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceNumberTableViewController.h; sourceTree = "<group>"; };
+		D07BE5741BEC4888001CF69B /* ServiceNumberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceNumberTableViewController.m; sourceTree = "<group>"; };
+		D07BE57A1BEC4E93001CF69B /* ServiceNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceNumberCell.h; path = ../ServiceNumberCell.h; sourceTree = "<group>"; };
+		D07BE57B1BEC4E93001CF69B /* ServiceNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceNumberCell.m; path = ../ServiceNumberCell.m; sourceTree = "<group>"; };
 		D08828631BD42A9E001DFB48 /* ServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
 		D08828641BD42A9E001DFB48 /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
 		D08828691BD70CD8001DFB48 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D07BE5761BEC4965001CF69B /* Service Number */ = {
+			isa = PBXGroup;
+			children = (
+				D07BE5731BEC4888001CF69B /* ServiceNumberTableViewController.h */,
+				D07BE5741BEC4888001CF69B /* ServiceNumberTableViewController.m */,
+			);
+			name = "Service Number";
+			sourceTree = "<group>";
+		};
 		D08829131BD9CB49001DFB48 /* inventory */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +217,8 @@
 				D08829481BE535FA001DFB48 /* PartsCell.m */,
 				D088294D1BE54FDC001DFB48 /* InventoryCell.h */,
 				D088294E1BE54FDC001DFB48 /* InventoryCell.m */,
+				D07BE57A1BEC4E93001CF69B /* ServiceNumberCell.h */,
+				D07BE57B1BEC4E93001CF69B /* ServiceNumberCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -239,6 +256,7 @@
 				D08829131BD9CB49001DFB48 /* inventory */,
 				D08829141BD9CB87001DFB48 /* mileage */,
 				D08829151BD9CBCE001DFB48 /* Service */,
+				D07BE5761BEC4965001CF69B /* Service Number */,
 				D08828691BD70CD8001DFB48 /* Stack.h */,
 				D088286A1BD70CD8001DFB48 /* Stack.m */,
 				D0CD95731BC9A1FF005BF6C3 /* Assets.xcassets */,
@@ -411,12 +429,14 @@
 				D088294F1BE54FDC001DFB48 /* InventoryCell.m in Sources */,
 				D088294C1BE54AFC001DFB48 /* InventoryTableViewController.m in Sources */,
 				D08828651BD42A9E001DFB48 /* ServiceController.m in Sources */,
+				D07BE57C1BEC4E93001CF69B /* ServiceNumberCell.m in Sources */,
 				D088290E1BD9C639001DFB48 /* Service.m in Sources */,
 				D08829491BE535FA001DFB48 /* PartsCell.m in Sources */,
 				D088290B1BD9C639001DFB48 /* Mileage+CoreDataProperties.m in Sources */,
 				D08829401BE52A71001DFB48 /* ButtonCell.m in Sources */,
 				D088291E1BE1AA46001DFB48 /* ServiceTableViewDataSource.m in Sources */,
 				D088290F1BD9C639001DFB48 /* InventoryItem+CoreDataProperties.m in Sources */,
+				D07BE5751BEC4888001CF69B /* ServiceNumberTableViewController.m in Sources */,
 				D08829101BD9C639001DFB48 /* InventoryItem.m in Sources */,
 				D0CD956C1BC9A1FF005BF6C3 /* AppDelegate.m in Sources */,
 				D0CD95691BC9A1FF005BF6C3 /* main.m in Sources */,
