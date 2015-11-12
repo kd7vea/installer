@@ -28,16 +28,21 @@
 
 #pragma mark - Table view data source
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
+    return 5;
+    
+//    return [ServiceController sharedInstance].services.count;
 }
 
+#warning this needs to be fixed to display Service Number: on all cells!!!
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"serviceNumbercell"];
-    Service *service = [ServiceController sharedInstance].services[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", service.serviceNumber];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"serviceNumbercell"];
+//    Service *service = [ServiceController sharedInstance].services[indexPath.row];
+//    Service *service = [Service new];
+//    service.serviceNumber = @5;
+//    cell.textLabel.text = [NSString stringWithFormat:@"Service Number: %@", service.serviceNumber];
+    cell.textLabel.text = @"Service Number: ";
     return cell;
 }
 

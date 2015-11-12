@@ -20,12 +20,14 @@
     });
     return sharedInstance;
 }
-//-(NSArray *)inventoryInfo{
+-(NSArray *)parts{
 
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"InventoryItem"];
+    NSArray *fetchObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetch error:nil];
+    return fetchObjects;
+    
 
-
-
-//}
+}
 //CRUD create Method
 //create the new inventory list with quantities set at zero
 -(void) createInitialInventory {
@@ -188,6 +190,8 @@
 -(void) updateWithPartName: (NSString *)name toAmount:(NSNumber *)number {
 #warning I need functionality here!
 }
+
+
 
 //CRUD Update Method
 -(void)save{

@@ -48,7 +48,7 @@
 
 //read method
 -(NSArray *)services {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"service"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Service"];
     
     NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
 

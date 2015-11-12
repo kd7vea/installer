@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PartsCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *partLabel;
+
+@property (weak, nonatomic) IBOutlet UIStepper *partStepper;
+@property (weak, nonatomic) IBOutlet UITextField *partQuantity;
 
 @end

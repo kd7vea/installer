@@ -7,21 +7,60 @@
 //
 
 #import "PartsTableViewController.h"
+#import "PartsCell.h"
+#import "InventoryController.h"
+
+
+typedef NS_ENUM(NSInteger, inventoryList) {
+    inventoryListGoControl = 0,
+    inventoryListgc3,
+    inventoryListVerizonCell,
+    inventoryListATandTCell,
+    inventoryListTHINDW,
+    inventoryListrecessedDW,
+    inventoryListMotion,
+    inventoryListGlassBreak,
+    inventoryListSmoke,
+    inventoryListCarbon,
+    inventoryListFireFighter,
+    inventoryListMedPendant,
+    inventoryListKeyFOB,
+    inventoryListSuperSwitch,
+    inventoryListWirelessKeypad,
+    inventoryListTS1Keypad,
+    inventoryListGDReceiver,
+    inventoryList900mhzTrans,
+    inventoryListGETakeover,
+    inventoryListImageSensor,
+    inventoryListHD100Camera,
+    inventoryListDoorLockGold,
+    inventoryListDoorLockSilver,
+    inventoryListDoorLockbronze,
+    inventoryListThermostat,
+    inventoryListMyQGarage,
+    inventoryListMyQExtraDoor,
+    inventoryListDoorBell,
+    inventoryListLampModule,
+    inventoryListOutDoorCamera,
+    inventoryList5AmpBattery,
+    inventoryList16point5Transformer,
+    inventoryListYardSign,
+    inventoryListSignLights,
+    inventoryListDecals,
+    inventoryListTakeOverKit,
+    inventoryListFloodSensor
+};
+
 
 @interface PartsTableViewController ()
-
+@property (nullable, nonatomic, retain) NSString *partName;
+@property (nullable, nonatomic, retain) NSNumber *quantity;
 @end
 
 @implementation PartsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,62 +70,144 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    PartsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"partsCell"];
+    inventoryList item = indexPath.row;
+    NSString *partName = [self partNameForInventoryItem:item];
+    cell.partLabel.text = partName;
     return cell;
 }
-*/
+ 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 37;
+//        return [InventoryController sharedInstance].parts.count;
+    }
+
+    - (NSString *)partNameForInventoryItem:(inventoryList)item {
+        switch (item) {
+            case inventoryListGoControl:
+                return @"GO Control";
+                break;
+            case inventoryListgc3:
+                return @"GC3";
+                break;
+            case inventoryListVerizonCell:
+                return @"Verizon";
+                break;
+            case inventoryListATandTCell:
+                return @"AT&T";
+                break;
+            case inventoryListTHINDW:
+                return @"Thin DW";
+                break;
+            case inventoryListrecessedDW:
+                return @"Recessed DW";
+                break;
+            case inventoryListMotion:
+                return @"Motion";
+                break;
+            case inventoryListGlassBreak:
+                return @"GlassBreak";
+                break;
+            case inventoryListSmoke:
+                return @"Smoke";
+                break;
+            case inventoryListCarbon:
+                return @"Carbon";
+                break;
+            case inventoryListFireFighter:
+                return @"Fire Fighter";
+                break;
+            case inventoryListMedPendant:
+                return @"Med Pendant";
+                break;
+            case inventoryListKeyFOB:
+                return @"Key FOB";
+                break;
+            case inventoryListSuperSwitch:
+                return @"Super Switch";
+                break;
+            case inventoryListWirelessKeypad:
+                return @"Wireless KeyPad";
+                break;
+            case inventoryListTS1Keypad:
+                return @"TS1 Keypad";
+                break;
+            case inventoryListGDReceiver:
+                return @"GD Receiver";
+                break;
+            case inventoryList900mhzTrans:
+                return @"900mhz Receiver";
+                break;
+            case inventoryListGETakeover:
+                return @"GE Takeover";
+                break;
+            case inventoryListImageSensor:
+                return @"Image Sensor";
+                break;
+            case inventoryListHD100Camera:
+                return @"HD100 Camera";
+                break;
+            case inventoryListDoorLockGold:
+                return @"Door Lock Gold";
+                break;
+            case inventoryListDoorLockSilver:
+                return @"Door Lock Silver";
+                break;
+            case inventoryListDoorLockbronze:
+                return @"Door Lock Bronze";
+                break;
+            case inventoryListThermostat:
+                return @"Thermostat";
+                break;
+            case inventoryListMyQGarage:
+                return @"MyQ Garage";
+                break;
+            case inventoryListMyQExtraDoor:
+                return @"MyQ Extra Door";
+                break;
+            case inventoryListDoorBell:
+                return @"DoorBell";
+                break;
+            case inventoryListLampModule:
+                return @"Lamp Module";
+                break;
+            case inventoryListOutDoorCamera:
+                return @"Out Door Camera";
+                break;
+            case inventoryList5AmpBattery:
+                return @"5 Amp Battery";
+                break;
+            case inventoryList16point5Transformer:
+                return @"16.5 Transformer";
+                break;
+            case inventoryListYardSign:
+                return @"Yard Sign";
+                break;
+            case inventoryListSignLights:
+                return @"cell For Sign Lights";
+                break;
+            case inventoryListDecals:
+                return @"Decals";
+                break;
+            case inventoryListTakeOverKit:
+                return @"TakeOver Kit";
+                break;
+            case inventoryListFloodSensor:
+                return @"Flood Sensor";
+        }
+    }
+
+-(void)stepperChanged:(id)sender {
+    UIStepper *stepper = sender;
+    NSInteger index = stepper.tag;
+    double value = [stepper value];
+//    UITextField partQuantity = self.partQuantity[index];
+//    partQuantity.text = [NSString stringWithFormat:@"%d",(int)value];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

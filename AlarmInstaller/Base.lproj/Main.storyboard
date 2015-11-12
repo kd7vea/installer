@@ -97,13 +97,13 @@
         <!--Service Records-->
         <scene sceneID="clR-ck-zoV">
             <objects>
-                <tableViewController id="i6G-9B-xRg" sceneMemberID="viewController">
+                <tableViewController id="i6G-9B-xRg" customClass="ServiceNumberTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HwM-da-Glf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceNumberCell" textLabel="nn6-Bc-UDs" rowHeight="44" style="IBUITableViewCellStyleDefault" id="jAj-ot-T63" customClass="ServiceNumberCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceNumbercell" textLabel="nn6-Bc-UDs" rowHeight="44" style="IBUITableViewCellStyleDefault" id="jAj-ot-T63">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jAj-ot-T63" id="llL-cy-oES">
@@ -284,7 +284,7 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="hjy-Y2-Yqq"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Title" id="Bvr-Ew-ANc">
+                    <navigationItem key="navigationItem" title="Service Entry" id="Bvr-Ew-ANc">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="eAV-TH-fBS"/>
                     </navigationItem>
                 </tableViewController>
@@ -295,7 +295,7 @@
         <!--Parts Entry-->
         <scene sceneID="iUv-N0-ekb">
             <objects>
-                <tableViewController id="LxI-ch-rzc" sceneMemberID="viewController">
+                <tableViewController id="LxI-ch-rzc" customClass="PartsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DsU-oT-yTl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,13 +316,19 @@
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rLQ-LL-G0C">
                                             <rect key="frame" x="338" y="8" width="94" height="29"/>
                                         </stepper>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBm-fI-pcU">
-                                            <rect key="frame" x="8" y="7" width="271" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjf-R0-eHj">
+                                            <rect key="frame" x="22" y="11" width="203" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="partLabel" destination="Tjf-R0-eHj" id="9oe-Cm-XBS"/>
+                                    <outlet property="partQuantity" destination="dkP-WJ-7zW" id="09e-uC-6Md"/>
+                                    <outlet property="partStepper" destination="rLQ-LL-G0C" id="Amv-b3-3DC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -336,7 +342,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18B-V2-pDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2769" y="1430"/>
+            <point key="canvasLocation" x="2769" y="1421"/>
         </scene>
         <!--Mileage-->
         <scene sceneID="T5r-Lm-CMI">
@@ -502,6 +508,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eDd-ZS-9iH"/>
+        <segue reference="G0X-an-Qr0"/>
     </inferredMetricsTieBreakers>
 </document>
