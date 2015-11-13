@@ -1,24 +1,27 @@
 //
-//  ServiceNumberTableViewController.m
+//  MileageTableViewController.m
 //  AlarmInstaller
 //
-//  Created by Jake Estepp on 11/5/15.
+//  Created by Jake Estepp on 11/12/15.
 //  Copyright © 2015 Jake Estepp. All rights reserved.
 //
 
-#import "ServiceNumberTableViewController.h"
-#import "ServiceEntry.h"
-#import "ServiceController.h"
+#import "MileageTableViewController.h"
 
-@interface ServiceNumberTableViewController ()
-@property (nullable, nonatomic, retain) NSNumber *serviceNumber;
+@interface MileageTableViewController ()
+
 @end
 
-@implementation ServiceNumberTableViewController
+@implementation MileageTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,27 +31,15 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Incomplete implementation, return the number of sections
+    return 0;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [ServiceController sharedInstance].services.count;
+#warning Incomplete implementation, return the number of rows
+    return 0;
 }
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"serviceNumbercell"];
-    Service *service = [ServiceController sharedInstance].services[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Service Number: %@", service.serviceNumber];
-//    cell.textLabel.text = @"Service Number: ";
-    return cell;
-}
-
-
-
-
-
-
-
-
-
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

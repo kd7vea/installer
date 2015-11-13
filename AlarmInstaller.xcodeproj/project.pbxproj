@@ -37,6 +37,7 @@
 		D0CD95771BC9A1FF005BF6C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0CD95751BC9A1FF005BF6C3 /* LaunchScreen.storyboard */; };
 		D0CD95821BC9A1FF005BF6C3 /* AlarmInstallerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD95811BC9A1FF005BF6C3 /* AlarmInstallerTests.m */; };
 		D0CD958D1BC9A1FF005BF6C3 /* AlarmInstallerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD958C1BC9A1FF005BF6C3 /* AlarmInstallerUITests.m */; };
+		D0EAB40E1BF576DB00A21772 /* MileageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EAB40D1BF576DB00A21772 /* MileageTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		D0CD95881BC9A1FF005BF6C3 /* AlarmInstallerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmInstallerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD958C1BC9A1FF005BF6C3 /* AlarmInstallerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmInstallerUITests.m; sourceTree = "<group>"; };
 		D0CD958E1BC9A1FF005BF6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0EAB40C1BF576DB00A21772 /* MileageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MileageTableViewController.h; sourceTree = "<group>"; };
+		D0EAB40D1BF576DB00A21772 /* MileageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MileageTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				D08829011BD9C639001DFB48 /* Mileage.h */,
 				D08829001BD9C639001DFB48 /* Mileage+CoreDataProperties.m */,
 				D08828FF1BD9C639001DFB48 /* Mileage+CoreDataProperties.h */,
+				D0EAB40C1BF576DB00A21772 /* MileageTableViewController.h */,
+				D0EAB40D1BF576DB00A21772 /* MileageTableViewController.m */,
 				D08828F91BD8770B001DFB48 /* MileagecController.h */,
 				D08828FA1BD8770B001DFB48 /* MileagecController.m */,
 			);
@@ -439,6 +444,7 @@
 				D08828FB1BD8770B001DFB48 /* MileagecController.m in Sources */,
 				D08828F81BD8751E001DFB48 /* InventoryController.m in Sources */,
 				D08829211BE1C15A001DFB48 /* LabelCell.m in Sources */,
+				D0EAB40E1BF576DB00A21772 /* MileageTableViewController.m in Sources */,
 				D08829181BDBDD06001DFB48 /* Service+CoreDataProperties.m in Sources */,
 				D088290C1BD9C639001DFB48 /* Mileage.m in Sources */,
 				D088293D1BE51F85001DFB48 /* Model.xcdatamodeld in Sources */,

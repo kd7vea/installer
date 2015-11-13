@@ -20,7 +20,10 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRowCity,
     ServiceRowState,
     ServiceRowZipcode,
+    ServiceRowStartTime,
+    ServiceRowEndTime,
     ServiceRowServicePerformed,
+    ServiceRowMileage,
     ServiceRowParts
 };
 
@@ -45,8 +48,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    Service *service = [[ServiceController sharedInstance] createServiceWithserviceNumber:@1 address:@"4309 Griffin Rd" city:@"Hughson" state:@"Ca" zipCode:@95326 startTime:[NSDate date] endTime:[NSDate date] servicePerformed:@"Ate pie" parts:@"idk" mileage:@1];
-    NSLog(@"%@", service.city);
+//    Service *service = [[ServiceController sharedInstance] createServiceWithserviceNumber:@5 address:@"4306 Griffin Rd" city:@"Hughson" state:@"Ca" zipCode:@95326 startTime:[NSDate date] endTime:[NSDate date] servicePerformed:@"Ate pie" parts:@"idk" mileage:@1];
     
 }
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,8 +68,17 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
         case ServiceRowZipcode:
             return [self cellForZIpCode];
             break;
+        case ServiceRowStartTime:
+            return [self cellForStartTime];
+            break;
+        case ServiceRowEndTime:
+            return [self cellForEndTime];
+            break;
         case ServiceRowServicePerformed:
             return [self cellForServicePerformed];
+            break;
+        case ServiceRowMileage:
+            return [self cellForMileage];
             break;
         case ServiceRowParts:
             return [self cellForParts];
@@ -110,15 +121,37 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     self.zipCode = [NSNumber numberWithInteger:[cell.textField.text intValue]];
     return cell;
 }
+-(UITableViewCell *)cellForStartTime {
+    LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.label.text = @"StartTime";
+    self.address = cell.textField.text;
+    return cell;
+}
+-(UITableViewCell *)cellForEndTime {
+    LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.label.text = @"EndTime";
+    self.address = cell.textField.text;
+    return cell;
+}
+
 -(UITableViewCell *)cellForServicePerformed {
     TextViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"textViewCell"];
     cell.label.text = @"Service Performed";
     self.servicePerformed = cell.textView.text;
     return cell;
 }
+
+
 -(UITableViewCell *)cellForParts {
     ButtonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
     cell.label.text = @"parts";
+    return cell;
+}
+
+-(UITableViewCell *)cellForMileage {
+    LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.label.text = @"Mileage";
+    self.address = cell.textField.text;
     return cell;
 }
 
@@ -133,7 +166,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 7;
+    return 10;
 }
 
 
