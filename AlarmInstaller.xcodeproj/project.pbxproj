@@ -38,6 +38,9 @@
 		D0CD95821BC9A1FF005BF6C3 /* AlarmInstallerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD95811BC9A1FF005BF6C3 /* AlarmInstallerTests.m */; };
 		D0CD958D1BC9A1FF005BF6C3 /* AlarmInstallerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CD958C1BC9A1FF005BF6C3 /* AlarmInstallerUITests.m */; };
 		D0EAB40E1BF576DB00A21772 /* MileageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EAB40D1BF576DB00A21772 /* MileageTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D0EAB4111BF5873B00A21772 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EAB4101BF5873B00A21772 /* DateCell.m */; settings = {ASSET_TAGS = (); }; };
+		D0EAB4141BF5876700A21772 /* CalculateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EAB4131BF5876700A21772 /* CalculateCell.m */; settings = {ASSET_TAGS = (); }; };
+		D0EAB4171BF5879000A21772 /* MileageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EAB4161BF5879000A21772 /* MileageCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,12 @@
 		D0CD958E1BC9A1FF005BF6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0EAB40C1BF576DB00A21772 /* MileageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MileageTableViewController.h; sourceTree = "<group>"; };
 		D0EAB40D1BF576DB00A21772 /* MileageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MileageTableViewController.m; sourceTree = "<group>"; };
+		D0EAB40F1BF5873B00A21772 /* DateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCell.h; sourceTree = "<group>"; };
+		D0EAB4101BF5873B00A21772 /* DateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCell.m; sourceTree = "<group>"; };
+		D0EAB4121BF5876700A21772 /* CalculateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateCell.h; sourceTree = "<group>"; };
+		D0EAB4131BF5876700A21772 /* CalculateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateCell.m; sourceTree = "<group>"; };
+		D0EAB4151BF5879000A21772 /* MileageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MileageCell.h; sourceTree = "<group>"; };
+		D0EAB4161BF5879000A21772 /* MileageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MileageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +218,12 @@
 		D08829251BE1C2E1001DFB48 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D0EAB40F1BF5873B00A21772 /* DateCell.h */,
+				D0EAB4101BF5873B00A21772 /* DateCell.m */,
+				D0EAB4121BF5876700A21772 /* CalculateCell.h */,
+				D0EAB4131BF5876700A21772 /* CalculateCell.m */,
+				D0EAB4151BF5879000A21772 /* MileageCell.h */,
+				D0EAB4161BF5879000A21772 /* MileageCell.m */,
 				D088291F1BE1C15A001DFB48 /* LabelCell.h */,
 				D08829201BE1C15A001DFB48 /* LabelCell.m */,
 				D08829221BE1C19D001DFB48 /* TextViewCell.h */,
@@ -430,11 +445,13 @@
 				D088294F1BE54FDC001DFB48 /* InventoryCell.m in Sources */,
 				D088294C1BE54AFC001DFB48 /* InventoryTableViewController.m in Sources */,
 				D08828651BD42A9E001DFB48 /* ServiceController.m in Sources */,
+				D0EAB4111BF5873B00A21772 /* DateCell.m in Sources */,
 				D088290E1BD9C639001DFB48 /* Service.m in Sources */,
 				D08829491BE535FA001DFB48 /* PartsCell.m in Sources */,
 				D088290B1BD9C639001DFB48 /* Mileage+CoreDataProperties.m in Sources */,
 				D08829401BE52A71001DFB48 /* ButtonCell.m in Sources */,
 				D088291E1BE1AA46001DFB48 /* ServiceTableViewDataSource.m in Sources */,
+				D0EAB4141BF5876700A21772 /* CalculateCell.m in Sources */,
 				D088290F1BD9C639001DFB48 /* InventoryItem+CoreDataProperties.m in Sources */,
 				D07BE5751BEC4888001CF69B /* ServiceNumberTableViewController.m in Sources */,
 				D08829101BD9C639001DFB48 /* InventoryItem.m in Sources */,
@@ -445,6 +462,7 @@
 				D08828F81BD8751E001DFB48 /* InventoryController.m in Sources */,
 				D08829211BE1C15A001DFB48 /* LabelCell.m in Sources */,
 				D0EAB40E1BF576DB00A21772 /* MileageTableViewController.m in Sources */,
+				D0EAB4171BF5879000A21772 /* MileageCell.m in Sources */,
 				D08829181BDBDD06001DFB48 /* Service+CoreDataProperties.m in Sources */,
 				D088290C1BD9C639001DFB48 /* Mileage.m in Sources */,
 				D088293D1BE51F85001DFB48 /* Model.xcdatamodeld in Sources */,

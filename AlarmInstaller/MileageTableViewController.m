@@ -8,6 +8,16 @@
 
 #import "MileageTableViewController.h"
 
+typedef NS_ENUM(NSInteger, Mileage) {
+    MileageStartDateCell =0,
+    MileageEndDateCell,
+    MileageCalculateCel,
+    MileageMileageCell
+};
+
+
+
+
 @interface MileageTableViewController ()
 
 @end
@@ -31,25 +41,43 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 4;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    switch (indexPath.row) {
+        case MileageStartDateCell:
+            return [self cellForStartDate];
+            break;
+        case MileageEndDateCell:
+            return [self cellForEndDate];
+            break;
+        case MileageCalculateCel:
+            return [self cellForCalculateCell];
+            break;
+        case MileageMileageCell:
+            return [self cellForMileage];
+            break;
+    }
+}
+
+-(UITableViewCell *)cellForStartDate {
+    DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
+    cell.label.text = @"Start Time";
+    self.startTime = cell.textField.text;
     return cell;
 }
-*/
+
+-(UITableViewCell *)cellFor
+
+
+
+
+
+
+
 
 /*
 // Override to support conditional editing of the table view.
