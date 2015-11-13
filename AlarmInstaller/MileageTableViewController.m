@@ -59,7 +59,6 @@ typedef NS_ENUM(NSInteger, Mileage) {
             break;
         case MileageMileageCell:
             return [self cellForMileage];
-            break;
     }
 }
 
@@ -70,9 +69,20 @@ typedef NS_ENUM(NSInteger, Mileage) {
     return cell;
 }
 
--(UITableViewCell *)cellFor
+
+-(UITableViewCell *)cellForEndDate{
+    
+}
 
 
+-(UITableViewCell *)cellForCalculateCell{
+    
+}
+
+
+-(UITableViewCell *)cellForMileage{
+    
+}
 
 
 
