@@ -19,5 +19,12 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)stepper:(id)sender {
+    UIStepper *stepper = sender;
+    NSLog(@"%f", [stepper value]);
+    NSInteger value = [stepper value];
+    parQuantity.text = [NSString stringWithFormat:@"%d", (int)value];
+}
+
 
 @end

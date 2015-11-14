@@ -77,6 +77,8 @@ typedef NS_ENUM(NSInteger, inventoryList) {
     NSString *partName = [self partNameForInventoryItem:item];
     cell.partLabel.text = partName;
     return cell;
+
+
 }
  
 
@@ -201,12 +203,21 @@ typedef NS_ENUM(NSInteger, inventoryList) {
         }
     }
 
--(void)stepperChanged:(id)sender {
-    UIStepper *stepper = sender;
-    NSInteger index = stepper.tag;
-    double value = [stepper value];
-//    UITextField partQuantity = self.partQuantity[index];
-//    partQuantity.text = [NSString stringWithFormat:@"%d",(int)value];
+//- (void)partStepperChanged:(id)sender {
+//    
+//    UIStepper *stepper = sender;
+//    NSInteger index = stepper.tag;
+//    NSInteger value = [stepper value];
+//    UITextField *partQuarntity = self.partQuantity[index];
+//    
+//    quantity.text = [NSString stringWithFormat:@"%d", (int)value];
+//}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

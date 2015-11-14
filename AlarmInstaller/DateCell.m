@@ -10,8 +10,10 @@
 
 @implementation DateCell
 
+//this is where I create my date picker for the timecells.
 - (void)awakeFromNib {
-    // Initialization code
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    [self.dateField setInputView:datePicker];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

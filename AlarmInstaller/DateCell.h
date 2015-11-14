@@ -10,7 +10,8 @@
 
 @interface DateCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *dateField;
+
 
 
 @end

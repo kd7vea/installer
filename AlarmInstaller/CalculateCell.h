@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CalculateCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIView *calculate;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
