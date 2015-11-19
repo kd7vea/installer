@@ -19,6 +19,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.quantity.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
