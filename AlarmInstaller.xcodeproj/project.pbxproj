@@ -203,14 +203,14 @@
 				D08829171BDBDD06001DFB48 /* Service+CoreDataProperties.m */,
 				D08829261BE2F573001DFB48 /* serviceTableViewController.h */,
 				D08829271BE2F573001DFB48 /* serviceTableViewController.m */,
-				D08829411BE53497001DFB48 /* PartsTableViewController.h */,
-				D08829421BE53497001DFB48 /* PartsTableViewController.m */,
 				D08829051BD9C639001DFB48 /* Service.h */,
 				D08829061BD9C639001DFB48 /* Service.m */,
 				D088291C1BE1AA46001DFB48 /* ServiceTableViewDataSource.h */,
 				D088291D1BE1AA46001DFB48 /* ServiceTableViewDataSource.m */,
 				D08828631BD42A9E001DFB48 /* ServiceController.h */,
 				D08828641BD42A9E001DFB48 /* ServiceController.m */,
+				D08829411BE53497001DFB48 /* PartsTableViewController.h */,
+				D08829421BE53497001DFB48 /* PartsTableViewController.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";

@@ -124,13 +124,13 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForStartTime {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"StartTime";
-    self.address = cell.textField.text;
+    self.startTime = cell.textField.text;
     return cell;
 }
 -(UITableViewCell *)cellForEndTime {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"EndTime";
-    self.address = cell.textField.text;
+  //  self.endTime =
     return cell;
 }
 
@@ -151,7 +151,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForMileage {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Mileage";
-    self.address = cell.textField.text;
+    self.mileage = [NSNumber numberWithInteger:[cell.textField.text intValue]];
     return cell;
 }
 

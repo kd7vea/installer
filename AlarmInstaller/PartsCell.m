@@ -8,10 +8,17 @@
 
 #import "PartsCell.h"
 
+@interface PartsCell() <UITextFieldDelegate>
+
+@end
+
 @implementation PartsCell
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    
+    self.partQuantity.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,9 +28,32 @@
 }
 - (IBAction)stepper:(id)sender {
     UIStepper *stepper = sender;
-    NSLog(@"%f", [stepper value]);
-    NSInteger value = [stepper value];
-    parQuantity.text = [NSString stringWithFormat:@"%d", (int)value];
+   // NSLog(@"%f", [stepper value]);
+    NSInteger partQuantity = [stepper value];
+    self.partQuantity.text = [NSString stringWithFormat:@"%d", (int)partQuantity];
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSInteger newValue;
+    
+    if ([textField.text isEqualToString:@""]) {
+        newValue = string.integerValue;
+    } else {
+        NSString *fullString = [NSString stringWithFormat:@"%@%@", textField.text, string];
+        newValue = fullString.integerValue;
+    }
+    
+    self.partStepper.value = newValue;
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 

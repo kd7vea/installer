@@ -55,6 +55,7 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 @interface PartsTableViewController ()
 @property (nullable, nonatomic, retain) NSString *partName;
 @property (nullable, nonatomic, retain) NSNumber *quantity;
+@property (nullable, nonatomic, retain) NSNumber *count;
 @end
 
 @implementation PartsTableViewController

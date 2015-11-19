@@ -166,6 +166,9 @@
                                         </textField>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-TF-bJs">
                                             <rect key="frame" x="261" y="7" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="stepper:" destination="GPe-BI-Epf" eventType="valueChanged" id="jmw-pp-TnV"/>
+                                            </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKn-Si-aKs">
                                             <rect key="frame" x="8" y="11" width="276" height="21"/>
@@ -176,6 +179,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="inventoryStepper" destination="uVw-TF-bJs" id="gpj-eR-tXM"/>
                                     <outlet property="partLabel" destination="SKn-Si-aKs" id="VQR-Wa-5Hj"/>
                                     <outlet property="quantity" destination="06V-Xn-liD" id="gD7-8Y-DKJ"/>
                                 </connections>
@@ -196,7 +200,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0am-xZ-TBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799" y="-52"/>
+            <point key="canvasLocation" x="2685" y="-72"/>
         </scene>
         <!--serviceTableViewController-->
         <scene sceneID="lR0-ZK-igP">
@@ -242,26 +246,26 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-yq-FiA">
                                             <rect key="frame" x="8" y="8" width="154" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="154" id="SLW-id-Zjb"/>
+                                                <constraint firstAttribute="width" constant="154" id="0hv-9U-Bce"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8R2-P5-Pa0">
-                                            <rect key="frame" x="212" y="4" width="306" height="111"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8R2-P5-Pa0">
+                                            <rect key="frame" x="212" y="4" width="306" height="112"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8R2-P5-Pa0" firstAttribute="leading" secondItem="O9B-yq-FiA" secondAttribute="trailing" constant="50" id="DwD-ZF-rkJ"/>
-                                        <constraint firstItem="8R2-P5-Pa0" firstAttribute="top" secondItem="1IY-ZH-Qgr" secondAttribute="topMargin" constant="-4" id="QHA-ti-Rf1"/>
-                                        <constraint firstItem="O9B-yq-FiA" firstAttribute="top" secondItem="1IY-ZH-Qgr" secondAttribute="topMargin" id="aRN-x1-0dQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8R2-P5-Pa0" secondAttribute="trailing" constant="74" id="hOk-Yf-fbm"/>
-                                        <constraint firstItem="O9B-yq-FiA" firstAttribute="leading" secondItem="1IY-ZH-Qgr" secondAttribute="leadingMargin" id="nAk-Uj-fAF"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="8R2-P5-Pa0" secondAttribute="bottom" constant="1" id="onu-qt-SBi"/>
+                                        <constraint firstItem="8R2-P5-Pa0" firstAttribute="leading" secondItem="O9B-yq-FiA" secondAttribute="trailing" constant="50" id="1ga-3C-xNc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="8R2-P5-Pa0" secondAttribute="bottom" constant="1" id="OaZ-mv-EYg"/>
+                                        <constraint firstItem="O9B-yq-FiA" firstAttribute="leading" secondItem="1IY-ZH-Qgr" secondAttribute="leadingMargin" id="Qa5-fF-YfV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8R2-P5-Pa0" secondAttribute="trailing" constant="74" id="rOh-z7-s57"/>
+                                        <constraint firstItem="8R2-P5-Pa0" firstAttribute="top" secondItem="1IY-ZH-Qgr" secondAttribute="topMargin" constant="-4" id="xI2-9j-HaU"/>
+                                        <constraint firstItem="O9B-yq-FiA" firstAttribute="top" secondItem="1IY-ZH-Qgr" secondAttribute="topMargin" id="xUJ-I7-pZN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -327,7 +331,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rLQ-LL-G0C">
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="rLQ-LL-G0C">
                                             <rect key="frame" x="338" y="8" width="94" height="29"/>
                                             <connections>
                                                 <action selector="stepper:" destination="QKM-28-XM1" eventType="valueChanged" id="GTI-NO-NyW"/>

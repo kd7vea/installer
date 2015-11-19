@@ -15,12 +15,11 @@
 @property(weak, nonatomic) id<InventoryCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *quantity;
 @property (weak, nonatomic) IBOutlet UILabel *partLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *inventoryStepper;
 
 @end
 
 @protocol InventoryCellDelegate <NSObject>
 
-- (void)textChangedInCell:(InventoryCell *)cell;
-- (void)textEnteredInCell:(InventoryCell *)cell;
 
 @end
