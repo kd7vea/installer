@@ -206,7 +206,7 @@
         <scene sceneID="lR0-ZK-igP">
             <objects>
                 <tableViewController title="serviceTableViewController" id="MMc-cf-gnP" customClass="serviceTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mik-Hp-ejc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mik-Hp-ejc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,8 +236,33 @@
                                     <outlet property="textField" destination="ZdU-tD-Ahj" id="brp-01-BSt"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" id="nuc-DY-VUA" customClass="DateCell">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuc-DY-VUA" id="Dk3-jI-3H4">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ru6-lZ-LCr">
+                                            <rect key="frame" x="8" y="11" width="172" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-gK-Rbl">
+                                            <rect key="frame" x="212" y="6" width="150" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateField" destination="3wi-gK-Rbl" id="bSZ-wB-YEK"/>
+                                    <outlet property="label" destination="Ru6-lZ-LCr" id="zCW-DQ-6VK"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textViewCell" rowHeight="125" id="UO3-6A-LaG" customClass="TextViewCell">
-                                <rect key="frame" x="0.0" y="136" width="600" height="125"/>
+                                <rect key="frame" x="0.0" y="180" width="600" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UO3-6A-LaG" id="1IY-ZH-Qgr">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
@@ -274,7 +299,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonCell" id="y6t-7J-ev6" customClass="ButtonCell">
-                                <rect key="frame" x="0.0" y="261" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="305" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6t-7J-ev6" id="unb-Gm-H1Z">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -303,7 +328,11 @@
                         <barButtonItem title="Item" id="hjy-Y2-Yqq"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Service Entry" id="Bvr-Ew-ANc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eAV-TH-fBS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eAV-TH-fBS">
+                            <connections>
+                                <action selector="save:" destination="MMc-cf-gnP" id="nas-yV-DRk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRg-Dy-yj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +429,7 @@
         <scene sceneID="iFS-CK-Vw3">
             <objects>
                 <tableViewController id="9ML-1z-6Uc" customClass="MileageTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sSd-bo-xhJ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sSd-bo-xhJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -419,7 +448,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weI-Aw-D8A">
-                                            <rect key="frame" x="119" y="10" width="120" height="30"/>
+                                            <rect key="frame" x="119" y="10" width="246" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>

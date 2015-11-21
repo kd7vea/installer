@@ -73,8 +73,6 @@ typedef NS_ENUM(NSInteger, Mileage) {
 -(UITableViewCell *)cellForStartDate {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
     cell.label.text = @"Start Time";
-    NSDate *picked = [NSDate date];
-    //self.date = I need to set my date here from the datepicker
     return cell;
 }
 

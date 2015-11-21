@@ -112,9 +112,9 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     InventoryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"inventoryCell"];
     inventoryList item = indexPath.row;
+    cell.quantity.keyboardType = UIKeyboardTypeNumberPad;
     NSString *partName = [self partNameForInventoryItem:item];
     cell.partLabel.text = partName;
-    
     // TODO: get quantity from core data for part with partName
     // TODO: set the quantity textField.text to quantity from core data
     return cell;

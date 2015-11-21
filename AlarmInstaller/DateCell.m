@@ -13,6 +13,7 @@
 //this is where I create my date picker for the timecells.
 - (void)awakeFromNib {
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
     [self.dateField setInputView:datePicker];
     [datePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
 }
@@ -23,11 +24,22 @@
     // Configure the view for the selected state
 }
 
--(void)datePickerChanged: (UIDatePicker *)picker {
-    NSString *date = [NSString stringWithFormat:@"%@", picker.date];
-//    NSDateFormatter *formatter = [NSDateFormatter]
-#warning Format the date so it is readable.
-    self.dateField.text = date;
-}
+//-(void)datePickerChanged: (UIDatePicker *)picker {
+//    if (<#condition#>) {
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"MM /d /y"];
+//        NSString *date = [dateFormatter stringFromDate:picker.date];
+//        self.dateField.text = date;
+//
+//    } else {
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"MM /d /y "];
+//        NSString *date = [dateFormatter stringFromDate:picker.date];
+//        self.dateField.text = date;
+//
+//    }
+//   }
 
 @end
+
+

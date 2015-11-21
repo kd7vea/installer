@@ -13,6 +13,7 @@
 #import "TextViewCell.h"
 #import "ButtonCell.h"
 #import "ServiceNumberTableViewController.h"
+#import "DateCell.h"
 
 typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRowServiceNumber = 0,
@@ -40,6 +41,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 @property (nullable, nonatomic, retain) NSString *servicePerformed;
 @property (nullable, nonatomic, retain) NSString *parts;
 @property (nullable, nonatomic, retain) NSNumber *mileage;
+@property (nonatomic, strong)NSDictionary *serviceDictionary;
 
 @end
 
@@ -49,8 +51,21 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    Service *service = [[ServiceController sharedInstance] createServiceWithserviceNumber:@5 address:@"4306 Griffin Rd" city:@"Hughson" state:@"Ca" zipCode:@95326 startTime:[NSDate date] endTime:[NSDate date] servicePerformed:@"Ate pie" parts:@"idk" mileage:@1];
-    
 }
+
+- (IBAction)save:(id)sender {
+    for (NSNumber *key in self.serviceDictionary) {
+        ServiceRow item = key.integerValue;
+        NSNumber *serviceNumber = [self :item];
+        NSString *partAmountString = self.inventoryDictionary[key];
+        NSInteger partAmount = partAmountString.integerValue;
+        [[InventoryController sharedInstance] updateWithPartName:partName toAmount:@(partAmount)];
+    }
+
+}
+
+
+
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case ServiceRowServiceNumber:
@@ -93,6 +108,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Service Number";
     self.serviceNumber = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -100,6 +117,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Address";
     self.address = cell.textField.text;
+    cell.textField.keyboardType = UIKeyboardTypeDefault;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -107,30 +126,40 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"City";
     self.city = cell.textField.text;
+    cell.textField.keyboardType = UIKeyboardTypeDefault;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
 -(UITableViewCell *)cellForState {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"State";
     self.state = cell.textField.text;
+    cell.textField.keyboardType = UIKeyboardTypeDefault;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
 -(UITableViewCell *)cellForZIpCode {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"ZipCode";
     self.zipCode = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
 -(UITableViewCell *)cellForStartTime {
-    LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
-    cell.label.text = @"StartTime";
-    self.startTime = cell.textField.text;
+    DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
+    cell.label.text = @"Start Time";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
--(UITableViewCell *)cellForEndTime {
-    LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
-    cell.label.text = @"EndTime";
-  //  self.endTime =
+
+-(UITableViewCell *)cellForEndTime{
+    DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
+    cell.label.text = @"End Time";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -138,13 +167,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     TextViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"textViewCell"];
     cell.label.text = @"Service Performed";
     self.servicePerformed = cell.textView.text;
-    return cell;
-}
-
-
--(UITableViewCell *)cellForParts {
-    ButtonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
-    cell.label.text = @"parts";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -152,14 +175,20 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Mileage";
     self.mileage = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+-(UITableViewCell *)cellForParts {
+    ButtonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
+    cell.label.text = @"parts";
     return cell;
 }
 
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 #pragma mark - Table view data source
