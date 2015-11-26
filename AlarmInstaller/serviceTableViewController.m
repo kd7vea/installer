@@ -28,20 +28,10 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRowParts
 };
 
-@interface serviceTableViewController ()
+@interface serviceTableViewController () <textChangedDelegate, LabelCellDelegate>
 
-@property (strong, nonatomic) NSMutableArray *serviceCellCount;
-@property (nullable, nonatomic, retain) NSNumber *serviceNumber;
-@property (nullable, nonatomic, retain) NSString *address;
-@property (nullable, nonatomic, retain) NSString *city;
-@property (nullable, nonatomic, retain) NSString *state;
-@property (nullable, nonatomic, retain) NSNumber *zipCode;
-@property (nullable, nonatomic, retain) NSDate *endTime;
-@property (nullable, nonatomic, retain) NSDate *startTime;
-@property (nullable, nonatomic, retain) NSString *servicePerformed;
-@property (nullable, nonatomic, retain) NSString *parts;
-@property (nullable, nonatomic, retain) NSNumber *mileage;
 @property (nonatomic, strong)NSDictionary *serviceDictionary;
+@property (strong, nonatomic) NSMutableArray *serviceCellCount;
 
 @end
 
@@ -54,14 +44,12 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 }
 
 - (IBAction)save:(id)sender {
-    for (NSNumber *key in self.serviceDictionary) {
-        ServiceRow item = key.integerValue;
-        NSNumber *serviceNumber = [self :item];
-        NSString *partAmountString = self.inventoryDictionary[key];
-        NSInteger partAmount = partAmountString.integerValue;
-        [[InventoryController sharedInstance] updateWithPartName:partName toAmount:@(partAmount)];
-    }
-
+    
+    [self.view endEditing:YES];
+    
+    [[ServiceController sharedInstance] createServiceWithserviceNumber:(NSNumber *)self.serviceNumber address:(NSString *)self.address city:(NSString * )self.city state:(NSString *)self.state zipCode:(NSNumber *)self.zipCode startTime:(NSDate *)self.startTime endTime:(NSDate *)self.endTime servicePerformed:(NSString *)self.servicePerformed parts:(NSString *)self.parts mileage:(NSNumber *)self.mileage];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -105,18 +93,37 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 
 -(UITableViewCell *)cellForServiceNumber {
+    
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.delegate = self;
     cell.label.text = @"Service Number";
-    self.serviceNumber = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    
+    if (self.serviceNumber == nil) {
+        
+        self.serviceNumber = [NSNumber numberWithInteger:[cell.textField.text integerValue]];
+        
+    } else {
+        cell.textField.text = [NSString stringWithFormat:@"%@", self.serviceNumber];
+    }
+    
     cell.textField.keyboardType = UIKeyboardTypeNumberPad;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    
 }
 
 -(UITableViewCell *)cellForAddress {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Address";
+    
+    if (self.address == nil) {
+        
     self.address = cell.textField.text;
+    
+    } else {
+        cell.textField.text = self.address;
+    }
+    
     cell.textField.keyboardType = UIKeyboardTypeDefault;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -125,7 +132,15 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForCity {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"City";
-    self.city = cell.textField.text;
+    
+    if (self.city == nil) {
+        
+        self.city = cell.textField.text;
+        
+    } else {
+        cell.textField.text = self.city;
+    }
+    
     cell.textField.keyboardType = UIKeyboardTypeDefault;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -134,7 +149,15 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForState {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"State";
-    self.state = cell.textField.text;
+
+    if (self.state == nil) {
+        
+        self.state = cell.textField.text;
+        
+    } else {
+        cell.textField.text = self.state;
+    }
+    
     cell.textField.keyboardType = UIKeyboardTypeDefault;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -142,8 +165,17 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 -(UITableViewCell *)cellForZIpCode {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.delegate = self;
     cell.label.text = @"ZipCode";
-    self.zipCode = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    
+    if (self.zipCode == nil) {
+        
+        self.zipCode = [NSNumber numberWithInteger:[cell.textField.text integerValue]];
+        
+    } else {
+        cell.textField.text = [NSString stringWithFormat:@"%@", self.zipCode];
+    }
+    
     cell.textField.keyboardType = UIKeyboardTypeNumberPad;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -152,6 +184,20 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForStartTime {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
     cell.label.text = @"Start Time";
+    
+    if (self.startTime == nil) {
+        
+        self.startTime = cell.date;
+        
+    } else {
+        
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"MM /d /y"];
+        NSString *date = [dateFormatter stringFromDate:self.startTime];
+        
+        cell.dateField.text = date;
+    }
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -159,6 +205,21 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForEndTime{
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
     cell.label.text = @"End Time";
+    
+    if (self.endTime == nil) {
+        
+        self.endTime = cell.date;
+        
+    } else {
+        
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"MM /d /y"];
+        NSString *date = [dateFormatter stringFromDate:self.endTime];
+        
+        cell.dateField.text = date;
+    }
+
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -166,15 +227,34 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForServicePerformed {
     TextViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"textViewCell"];
     cell.label.text = @"Service Performed";
-    self.servicePerformed = cell.textView.text;
+
+    if (self.servicePerformed == nil) {
+        
+        self.servicePerformed = cell.textView.text;
+        
+    } else {
+        cell.textView.text = self.servicePerformed;
+    }
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
     return cell;
 }
 
 -(UITableViewCell *)cellForMileage {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.delegate = self;
     cell.label.text = @"Mileage";
-    self.mileage = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    
+    if (self.mileage == nil) {
+        
+        self.mileage = [NSNumber numberWithInteger:[cell.textField.text integerValue]];
+        
+    } else {
+        cell.textField.text = [NSString stringWithFormat:@"%@", self.mileage];
+    }
+    
+//    self.mileage = [NSNumber numberWithInteger:[cell.textField.text intValue]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -199,12 +279,26 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 }
 
 
+#pragma mark - TextViewDelegate
+
+-(void)myTextChanged:(TextViewCell *)sender {
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    self.servicePerformed = sender.textView.text;
+}
+
+-(void)serviceTextChanged:(TextViewCell *)sender {
+  //  self.serviceNumber = sender.textView.text;
+}
 
 
+#pragma mark - Label Cell Delegate
 
-
-
-
+- (void)textEnteredInCell:(LabelCell *)cell {
+    NSString *serviceNumberInput = cell.textField.text;
+    NSInteger serviceNumberInteger = [serviceNumberInput integerValue];
+    NSNumber *serviceNumber = @(serviceNumberInteger);
+    self.serviceNumber = serviceNumber;
+}
 
 
 

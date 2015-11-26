@@ -24,21 +24,14 @@
     // Configure the view for the selected state
 }
 
-//-(void)datePickerChanged: (UIDatePicker *)picker {
-//    if (<#condition#>) {
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setDateFormat:@"MM /d /y"];
-//        NSString *date = [dateFormatter stringFromDate:picker.date];
-//        self.dateField.text = date;
-//
-//    } else {
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setDateFormat:@"MM /d /y "];
-//        NSString *date = [dateFormatter stringFromDate:picker.date];
-//        self.dateField.text = date;
-//
-//    }
-//   }
+-(void)datePickerChanged: (UIDatePicker *)picker {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM /d /y"];
+        NSString *date = [dateFormatter stringFromDate:picker.date];
+        self.dateField.text = date;
+        self.date = picker.date;
+    
+}
 
 @end
 

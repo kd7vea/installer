@@ -9,6 +9,7 @@
 #import "ServiceNumberTableViewController.h"
 #import "ServiceEntry.h"
 #import "ServiceController.h"
+#import "serviceTableViewController.h"
 
 @interface ServiceNumberTableViewController ()
 @property (nullable, nonatomic, retain) NSNumber *serviceNumber;
@@ -19,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,8 +44,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"serviceNumbercell"];
     Service *service = [ServiceController sharedInstance].services[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"Service Number: %@", service.serviceNumber];
-//    cell.textLabel.text = @"Service Number: ";
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
 }
 
 
@@ -94,14 +106,34 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"showExistingServiceRecord"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Service *service = [ServiceController sharedInstance].services[indexPath.row];
+        
+    serviceTableViewController *viewController = [segue destinationViewController];
+        
+        viewController.serviceNumber = service.serviceNumber;
+        viewController.address = service.address;
+        viewController.city = service.city;
+        viewController.state = service.state;
+        viewController.zipCode = service.zipCode;
+        viewController.startTime = service.startTime;
+        viewController.endTime = service.endTime;
+        viewController.servicePerformed = service.servicePerformed;
+        viewController.mileage = service.mileage;
+
+    }
+
 }
-*/
+
 
 @end

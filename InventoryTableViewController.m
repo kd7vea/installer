@@ -78,12 +78,17 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 
 //TODO: Took from datasource
 -(IBAction)save:(id)sender{
+    
+    [self.view endEditing:YES];
+    
     for (NSNumber *key in self.inventoryDictionary) {
         inventoryList item = key.integerValue;
         NSString *partName = [self partNameForInventoryItem:item];
         NSString *partAmountString = self.inventoryDictionary[key];
         NSInteger partAmount = partAmountString.integerValue;
         [[InventoryController sharedInstance] updateWithPartName:partName toAmount:@(partAmount)];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

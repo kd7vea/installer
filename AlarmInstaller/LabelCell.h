@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LabelCell : UITableViewCell
+@protocol LabelCellDelegate;
+
+@interface LabelCell : UITableViewCell <UITextFieldDelegate>
+@property (weak, nonatomic) id<LabelCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@end
+
+@protocol LabelCellDelegate <NSObject>
+
+- (void)textEnteredInCell:(LabelCell *)cell;
 
 @end

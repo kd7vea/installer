@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TextViewCell : UITableViewCell
+@protocol textChangedDelegate;
+
+@interface TextViewCell : UITableViewCell <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) id<textChangedDelegate> delegate;
+
+@end
+
+@protocol textChangedDelegate <NSObject>
+
+-(void) myTextChanged:(TextViewCell *)sender;
 
 @end

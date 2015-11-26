@@ -20,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - Text Field Delegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.delegate textEnteredInCell:self];
+}
+
 @end

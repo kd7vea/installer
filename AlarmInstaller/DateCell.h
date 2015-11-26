@@ -11,6 +11,7 @@
 @interface DateCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
+@property (weak, nonatomic) NSDate *date;
 
 
 @end

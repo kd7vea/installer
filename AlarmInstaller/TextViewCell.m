@@ -12,6 +12,11 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.textView.delegate = self;
+}
+
+-(void)textViewDidChange:(UITextView *)textView {
+    [self.delegate myTextChanged:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,5 +24,7 @@
 
     // Configure the view for the selected state
 }
+
+
 
 @end
