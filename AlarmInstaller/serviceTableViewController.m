@@ -39,8 +39,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    Service *service = [[ServiceController sharedInstance] createServiceWithserviceNumber:@5 address:@"4306 Griffin Rd" city:@"Hughson" state:@"Ca" zipCode:@95326 startTime:[NSDate date] endTime:[NSDate date] servicePerformed:@"Ate pie" parts:@"idk" mileage:@1];
+
 }
 
 - (IBAction)save:(id)sender {
@@ -112,6 +111,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     
 }
 
+
+
 -(UITableViewCell *)cellForAddress {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Address";
@@ -128,6 +129,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+
 
 -(UITableViewCell *)cellForCity {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
@@ -146,6 +149,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     return cell;
 }
 
+
+
 -(UITableViewCell *)cellForState {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"State";
@@ -162,6 +167,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+
 
 -(UITableViewCell *)cellForZIpCode {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
@@ -180,6 +187,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+
 
 -(UITableViewCell *)cellForStartTime {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
@@ -201,6 +210,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+
 
 -(UITableViewCell *)cellForEndTime{
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
@@ -224,6 +235,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     return cell;
 }
 
+
+
 -(UITableViewCell *)cellForServicePerformed {
     TextViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"textViewCell"];
     cell.label.text = @"Service Performed";
@@ -241,9 +254,10 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     return cell;
 }
 
+
+
 -(UITableViewCell *)cellForMileage {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
-    cell.delegate = self;
     cell.label.text = @"Mileage";
     
     if (self.mileage == nil) {
@@ -298,7 +312,10 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     NSInteger serviceNumberInteger = [serviceNumberInput integerValue];
     NSNumber *serviceNumber = @(serviceNumberInteger);
     self.serviceNumber = serviceNumber;
+
 }
+
+
 
 
 
