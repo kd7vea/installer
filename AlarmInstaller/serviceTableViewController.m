@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRowParts
 };
 
-@interface serviceTableViewController () <textChangedDelegate, LabelCellDelegate>
+@interface serviceTableViewController () <TextViewCellDelegate, LabelCellDelegate>
 
 @property (nonatomic, strong)NSDictionary *serviceDictionary;
 @property (strong, nonatomic) NSMutableArray *serviceCellCount;
@@ -115,6 +115,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 -(UITableViewCell *)cellForAddress {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.delegate = self;
     cell.label.text = @"Address";
     
     if (self.address == nil) {
@@ -308,10 +309,53 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 #pragma mark - Label Cell Delegate
 
 - (void)textEnteredInCell:(LabelCell *)cell {
-    NSString *serviceNumberInput = cell.textField.text;
-    NSInteger serviceNumberInteger = [serviceNumberInput integerValue];
-    NSNumber *serviceNumber = @(serviceNumberInteger);
-    self.serviceNumber = serviceNumber;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    ServiceRow row = indexPath.row;
+    
+    switch (row) {
+        case ServiceRowServiceNumber: {
+            NSString *serviceNumberInput = cell.textField.text;
+            NSInteger serviceNumberInteger = [serviceNumberInput integerValue];
+            NSNumber *serviceNumber = @(serviceNumberInteger);
+            self.serviceNumber = serviceNumber;
+            break;
+        }
+        case ServiceRowAddress: {
+            NSString *address = cell.textField.text;
+            self.address = address;
+            break;
+        }
+        case ServiceRowCity: {
+            NSString *city = cell.textField.text;
+            self.city = city;
+            break;
+        }
+        case ServiceRowState: {
+            NSString *state = cell.textField.text;
+            self.state = state;
+            break;
+        }
+        case ServiceRowZipcode: {
+            NSString *zipString = cell.textField.text;
+            NSInteger zipInteger = [zipString integerValue];
+            NSNumber *zip = @(zipInteger);
+            self.zipCode = zip;
+            break;
+        }
+        case ServiceRowMileage: {
+            NSString *mileageString = cell.textField.text;
+            NSInteger mileageInteger = [mileageString integerValue];
+            NSNumber *mileage = @(mileageInteger);
+            self.mileage = mileage;
+            break;
+        }
+        case ServiceRowStartTime:
+        case ServiceRowEndTime:
+        case ServiceRowServicePerformed:
+        case ServiceRowParts:
+            break;
+    }
+    
 
 }
 
