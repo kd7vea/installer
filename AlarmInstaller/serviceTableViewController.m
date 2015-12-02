@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRowParts
 };
 
-@interface serviceTableViewController () <TextViewCellDelegate, LabelCellDelegate>
+@interface serviceTableViewController () <TextViewCellDelegate, LabelCellDelegate, DateCellDelegate>
 
 @property (nonatomic, strong)NSDictionary *serviceDictionary;
 @property (strong, nonatomic) NSMutableArray *serviceCellCount;
@@ -135,6 +135,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 -(UITableViewCell *)cellForCity {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.delegate = self;
     cell.label.text = @"City";
     
     if (self.city == nil) {
@@ -154,6 +155,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 -(UITableViewCell *)cellForState {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
+    cell.delegate = self;
     cell.label.text = @"State";
 
     if (self.state == nil) {
@@ -193,6 +195,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 -(UITableViewCell *)cellForStartTime {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
+    
     cell.label.text = @"Start Time";
     
     if (self.startTime == nil) {
@@ -297,12 +300,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 #pragma mark - TextViewDelegate
 
 -(void)myTextChanged:(TextViewCell *)sender {
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     self.servicePerformed = sender.textView.text;
-}
-
--(void)serviceTextChanged:(TextViewCell *)sender {
-  //  self.serviceNumber = sender.textView.text;
 }
 
 
@@ -359,6 +357,21 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 }
 
+#pragma mark - date cell delegate
+
+- (void) dateChanged:(DateCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    ServiceRow row = indexPath.row;
+    
+    switch (row) {
+        case ServiceRowStartTime:
+            NSDate *startTime = cell.da
+            break;
+            
+        default:
+            break;
+    }
+}
 
 
 
