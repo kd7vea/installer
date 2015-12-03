@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DateCellDelegate;
+
 @interface DateCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (weak, nonatomic) NSDate *date;
-
+@property (weak, nonatomic) id<DateCellDelegate> delegate;
 
 @end
+
+@protocol DateCellDelegate <NSObject>
+-(void) dateChanged:(DateCell *)sender;
+
+@end
+

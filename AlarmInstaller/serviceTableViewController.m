@@ -195,7 +195,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 -(UITableViewCell *)cellForStartTime {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
-    
+    cell.delegate = self;
     cell.label.text = @"Start Time";
     
     if (self.startTime == nil) {
@@ -220,7 +220,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForEndTime{
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
     cell.label.text = @"End Time";
-    
+    cell.delegate = self;
     if (self.endTime == nil) {
         
         self.endTime = cell.date;
@@ -244,7 +244,8 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 -(UITableViewCell *)cellForServicePerformed {
     TextViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"textViewCell"];
     cell.label.text = @"Service Performed";
-
+    cell.delegate = self;
+    
     if (self.servicePerformed == nil) {
         
         self.servicePerformed = cell.textView.text;
@@ -254,15 +255,15 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.delegate = self;
+  
     return cell;
 }
-
 
 
 -(UITableViewCell *)cellForMileage {
     LabelCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"labelCell"];
     cell.label.text = @"Mileage";
+    cell.delegate = self;
     
     if (self.mileage == nil) {
         
@@ -272,7 +273,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
         cell.textField.text = [NSString stringWithFormat:@"%@", self.mileage];
     }
     
-//    self.mileage = [NSNumber numberWithInteger:[cell.textField.text intValue]];
+    self.mileage = [NSNumber numberWithInteger:[cell.textField.text intValue]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -344,6 +345,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
             NSString *mileageString = cell.textField.text;
             NSInteger mileageInteger = [mileageString integerValue];
             NSNumber *mileage = @(mileageInteger);
+            
             self.mileage = mileage;
             break;
         }
@@ -364,15 +366,39 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRow row = indexPath.row;
     
     switch (row) {
-        case ServiceRowStartTime:
-            NSDate *startTime = cell.da
+        case ServiceRowStartTime: {
+            NSDate *startTime = cell.date;
+            self.startTime = startTime;
             break;
-            
-        default:
+        }
+        case ServiceRowEndTime: {
+            NSDate *endTime = cell.date;
+            self.endTime = endTime;
+            break;
+        }
+        case ServiceRowServiceNumber:
+        case ServiceRowAddress:
+        case ServiceRowCity:
+        case ServiceRowState:
+        case ServiceRowZipcode:
+        case ServiceRowServicePerformed:
+        case ServiceRowMileage:
+        case ServiceRowParts:
             break;
     }
 }
 
+- (BOOL)dateFieldShouldReturn:(DateCell *)dateField{
+    
+    [dateField resignFirstResponder];
+    
+    return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 
 

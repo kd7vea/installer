@@ -2,7 +2,7 @@
 //  Mileage+CoreDataProperties.h
 //  AlarmInstaller
 //
-//  Created by Jake Estepp on 10/22/15.
+//  Created by Jake Estepp on 12/2/15.
 //  Copyright © 2015 Jake Estepp. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Mileage (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSString *business;
 @property (nullable, nonatomic, retain) NSNumber *mileage;
 @property (nullable, nonatomic, retain) NSNumber *oldMileage;
-@property (nullable, nonatomic, retain) NSString *business;
 @property (nullable, nonatomic, retain) NSString *personal;
 @property (nullable, nonatomic, retain) NSDate *timeStamp;
 

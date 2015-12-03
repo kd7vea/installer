@@ -2,7 +2,7 @@
 //  Service+CoreDataProperties.m
 //  AlarmInstaller
 //
-//  Created by Jake Estepp on 10/24/15.
+//  Created by Jake Estepp on 12/2/15.
 //  Copyright © 2015 Jake Estepp. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,15 +13,15 @@
 
 @implementation Service (CoreDataProperties)
 
-@dynamic serviceNumber;
 @dynamic address;
 @dynamic city;
+@dynamic endTime;
+@dynamic mileage;
+@dynamic parts;
+@dynamic serviceNumber;
+@dynamic servicePerformed;
+@dynamic startTime;
 @dynamic state;
 @dynamic zipCode;
-@dynamic endTime;
-@dynamic startTime;
-@dynamic servicePerformed;
-@dynamic parts;
-@dynamic mileage;
 
 @end

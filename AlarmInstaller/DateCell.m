@@ -8,6 +8,7 @@
 
 #import "DateCell.h"
 
+
 @implementation DateCell
 
 //this is where I create my date picker for the timecells.
@@ -16,6 +17,13 @@
     datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     [self.dateField setInputView:datePicker];
     [datePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (BOOL)dateFieldShouldReturn:(DateCell *)dateField {
+    [dateField resignFirstResponder];
+    
+    return YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,8 +39,18 @@
     NSString *date = [dateFormatter stringFromDate:picker.date];
     self.dateField.text = date;
     self.date = picker.date;
-    
+    [self.delegate dateChanged:self];
 }
+
+
+
+
+#pragma mark - date Field Delegate
+
+-(void)textViewDidChange:(UITextField *)textField {
+    [self.delegate dateChanged:self];
+}
+
 
 @end
 

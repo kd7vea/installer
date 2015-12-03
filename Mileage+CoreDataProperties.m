@@ -2,7 +2,7 @@
 //  Mileage+CoreDataProperties.m
 //  AlarmInstaller
 //
-//  Created by Jake Estepp on 10/22/15.
+//  Created by Jake Estepp on 12/2/15.
 //  Copyright © 2015 Jake Estepp. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,9 +13,9 @@
 
 @implementation Mileage (CoreDataProperties)
 
+@dynamic business;
 @dynamic mileage;
 @dynamic oldMileage;
-@dynamic business;
 @dynamic personal;
 @dynamic timeStamp;
 
