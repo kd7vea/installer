@@ -8,15 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "Service.h"
+#import "InventoryItem+CoreDataProperties.h"
 
 @interface PartsController : NSObject
 
 
-@property(nonatomic, retain)NSArray *parts;
+@property (nullable, nonatomic, retain)NSArray *parts;
+@property (nullable, nonatomic, retain)NSString *partName;
+@property (nullable, nonatomic, retain)NSNumber *quantity;
 
 + (PartsController *)sharedInstance;
 
--(Parts *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity;
+-(InventoryItem *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity;
 
 
 @end

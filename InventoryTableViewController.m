@@ -88,7 +88,6 @@ typedef NS_ENUM(NSInteger, inventoryList) {
         NSInteger partAmount = partAmountString.integerValue;
         [[InventoryController sharedInstance] updateWithPartName:partName toAmount:@(partAmount)];
         
-        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -104,7 +103,7 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 - (void)textChangedInCell:(InventoryCell *)cell {
     // Nothing for now, until we want to update while typing
 }
-
+#warning why is there no code here, but when I comment out, the programs stops working
 - (IBAction)quantitytTextField:(id)sender {
 }
 

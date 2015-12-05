@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     
     [self.view endEditing:YES];
     
-    [[ServiceController sharedInstance] createServiceWithserviceNumber:(NSNumber *)self.serviceNumber address:(NSString *)self.address city:(NSString * )self.city state:(NSString *)self.state zipCode:(NSNumber *)self.zipCode startTime:(NSDate *)self.startTime endTime:(NSDate *)self.endTime servicePerformed:(NSString *)self.servicePerformed parts:(NSString *)self.parts mileage:(NSNumber *)self.mileage];
+    [[ServiceController sharedInstance] createServiceWithserviceNumber:self.serviceNumber address:self.address city:self.city state:self.state zipCode:self.zipCode startTime:self.startTime endTime:self.endTime servicePerformed:self.servicePerformed parts:self.parts mileage:self.mileage];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

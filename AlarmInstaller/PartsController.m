@@ -24,8 +24,8 @@
     return sharedInstance;
 }
 
--(Parts *)(id)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity{
-    Parts *parts = [NSEntityDescription insertNewObjectForEntityForName:@"Parts" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+-(InventoryItem *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity{
+    InventoryItem *parts = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     parts.partName = partName;
     parts.quantity = quantity;
     
@@ -33,6 +33,28 @@
     //this line calls the saveToPersistentStorageMethod(CRUD Update Method)
     [self saveToPersistentStorage];
     return parts;
+}
+
+
+//read method
+-(NSArray *)parts {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"InventoryItem"];
+    
+    NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    return fetchedObjects;
+}
+
+
+//updateMethod
+-(void)saveToPersistentStorage {
+    [[Stack sharedInstance].managedObjectContext save:nil];
+}
+
+
+//delete Method
+-(void)removeInventoryItem:(InventoryItem *)inventoryItem{
+    [inventoryItem.managedObjectContext deleteObject:inventoryItem];
 }
 
 @end

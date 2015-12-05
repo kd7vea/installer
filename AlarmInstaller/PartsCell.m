@@ -49,6 +49,13 @@
     return YES;
 }
 
+#pragma mark - Text Field Delegate
+
+- (void)numberEnteredInCell:(PartsCell *)cell {
+    [self.delegate NumberEnteredInCell:self];
+}
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];

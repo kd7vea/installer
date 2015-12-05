@@ -14,8 +14,9 @@
 typedef NS_ENUM(NSInteger, Mileage) {
     MileageStartDateCell =0,
     MileageEndDateCell,
-    MileageCalculateCel,
-    MileageMileageCell
+    MileageBusinessMileageCell,
+    MileagePersonalMileageCell,
+    MileageCalculateCell,
 };
 
 
@@ -47,7 +48,7 @@ typedef NS_ENUM(NSInteger, Mileage) {
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 
 
@@ -59,12 +60,15 @@ typedef NS_ENUM(NSInteger, Mileage) {
         case MileageEndDateCell:
             return [self cellForEndDate];
             break;
-        case MileageCalculateCel:
-            return [self cellForCalculateCell];
+        case MileageBusinessMileageCell:
+            return [self cellForBusinessMileage];
             break;
-        case MileageMileageCell:
-            return [self cellForMileage];
-            
+        case MileagePersonalMileageCell:
+            return [self cellForPersonalMileage];
+            break;
+        case MileageCalculateCell:
+            return [self cellForCalculateCell];
+
         default: NSLog(@"No Case Found");
             return nil;
     }
@@ -73,6 +77,12 @@ typedef NS_ENUM(NSInteger, Mileage) {
 -(UITableViewCell *)cellForStartDate {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
     cell.label.text = @"Start Time";
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"MM /d /y"];
+    NSString *date = [dateFormatter stringFromDate:self.date;
+
+    
     return cell;
 }
 
@@ -83,6 +93,15 @@ typedef NS_ENUM(NSInteger, Mileage) {
     return cell;
 }
 
+-(UITableViewCell *)cellForBusinessMileage{
+    MileageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"mileageCell"];
+    return cell;
+}
+
+-(UITableViewCell *)cellForPersonalMileage{
+    MileageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"mileageCell"];
+    return cell;
+}
 
 -(UITableViewCell *)cellForCalculateCell{
     CalculateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"calculateCell"];
@@ -90,11 +109,6 @@ typedef NS_ENUM(NSInteger, Mileage) {
     return cell;
 }
 
-
--(UITableViewCell *)cellForMileage{
-    MileageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"mileageCell"];
-    return cell;
-}
 - (void) showView
 {
    

@@ -393,7 +393,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Parts Entry" id="jvb-fR-oGA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="NlS-Oj-n7M"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="NlS-Oj-n7M">
+                            <connections>
+                                <action selector="save:" destination="LxI-ch-rzc" id="P2e-Rr-2mp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18B-V2-pDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -440,8 +444,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calculateCell" id="lUx-12-zTT" customClass="CalculateCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="calculateCell" tableViewCell="lUx-12-zTT" id="e21-FS-0Xt">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yaf-uE-csR">
+                                            <rect key="frame" x="8" y="8" width="126" height="30"/>
+                                            <state key="normal" title="Calculate Mileage"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="62" id="ZD0-le-XTm" customClass="DateCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="62"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="dateCell" tableViewCell="ZD0-le-XTm" id="6I3-nI-p7u">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
@@ -465,25 +483,6 @@
                                     <outlet property="label" destination="cMb-3P-3SA" id="f0k-IG-Qw4"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calculateCell" id="lUx-12-zTT" customClass="CalculateCell">
-                                <rect key="frame" x="0.0" y="154" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="calculateCell" tableViewCell="lUx-12-zTT" id="e21-FS-0Xt">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calculate Mileage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-AL-AGf">
-                                            <rect key="frame" x="146" y="8" width="309" height="27"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="label" destination="OX8-AL-AGf" id="cs5-1P-Hx0"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mileageCell" rowHeight="48" id="Fje-ft-wmf" customClass="MileageCell">
                                 <rect key="frame" x="0.0" y="198" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -492,32 +491,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGJ-4Z-o7M">
-                                            <rect key="frame" x="123" y="9" width="115" height="30"/>
+                                            <rect key="frame" x="120" y="9" width="245" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g8Y-ek-h9s">
-                                            <rect key="frame" x="408" y="9" width="137" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="business" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWH-N0-4DY">
-                                            <rect key="frame" x="8" y="13" width="107" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-Dx-jzv">
+                                            <rect key="frame" x="13" y="13" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZr-CY-EvK">
-                                            <rect key="frame" x="291" y="12" width="72" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="businessMIleage" destination="pGJ-4Z-o7M" id="fMu-h6-JZH"/>
-                                    <outlet property="personalMileage" destination="g8Y-ek-h9s" id="JEc-87-7uQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -530,7 +517,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVj-cn-UpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4191" y="706"/>
+            <point key="canvasLocation" x="4194" y="711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Snp-QJ-OId">
