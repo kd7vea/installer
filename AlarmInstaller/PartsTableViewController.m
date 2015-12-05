@@ -12,47 +12,9 @@
 #import "InventoryCell.h"
 #import "InventoryItem+CoreDataProperties.h"
 #import "PartsController.h"
+#import "Stack.h"
 
 
-typedef NS_ENUM(NSUInteger, inventoryList) {
-    inventoryListGoControl = 0,
-    inventoryListgc3,
-    inventoryListVerizonCell,
-    inventoryListATandTCell,
-    inventoryListTHINDW,
-    inventoryListrecessedDW,
-    inventoryListMotion,
-    inventoryListGlassBreak,
-    inventoryListSmoke,
-    inventoryListCarbon,
-    inventoryListFireFighter,
-    inventoryListMedPendant,
-    inventoryListKeyFOB,
-    inventoryListSuperSwitch,
-    inventoryListWirelessKeypad,
-    inventoryListTS1Keypad,
-    inventoryListGDReceiver,
-    inventoryList900mhzTrans,
-    inventoryListGETakeover,
-    inventoryListImageSensor,
-    inventoryListHD100Camera,
-    inventoryListDoorLockGold,
-    inventoryListDoorLockSilver,
-    inventoryListDoorLockbronze,
-    inventoryListThermostat,
-    inventoryListMyQGarage,
-    inventoryListMyQExtraDoor,
-    inventoryListDoorBell,
-    inventoryListLampModule,
-    inventoryListOutDoorCamera,
-    inventoryList5AmpBattery,
-    inventoryList16point5Transformer,
-    inventoryListYardSign,
-    inventoryListSignLights,
-    inventoryListDecals,
-    inventoryListTakeOverKit,
-    inventoryListFloodSensor
-};
 
 
 @interface PartsTableViewController () <PartsCellDelegate>
@@ -107,14 +69,18 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
     
     [self.view endEditing:YES];
     
-#warning I need to tie my service number to this because the service number will be distinct
-    [[PartsController sharedInstance] createPartsWithpartName:self.partName quantity:self.quantity];
-    Service *service = [Service new];
-    InventoryItem *part1 = [InventoryItem new];
-    part1.partName = @"";
-    part1.quantity = @2;
-    part1.service = service;
+    NSMutableArray *partsArray = [NSMutableArray new];
     
+
+    [[PartsController sharedInstance] createPartsWithpartName:self.partName quantity:self.quantity];
+    
+    for (int i=0; i < 37; i++) {
+        
+        InventoryItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+        item.partName = [[PartsController sharedInstance] partNameForInventoryItem:i];
+        item.quantity = @0;
+        item.service = self.service;
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -132,7 +98,7 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
     PartsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"partsCell"];
     cell.delegate = self;
     inventoryList item = indexPath.row;
-    NSString *partName = [self partNameForInventoryItem:item];
+    NSString *partName = [[PartsController sharedInstance] partNameForInventoryItem:item];
     cell.partLabel.text = partName;
     return cell;
 
@@ -145,120 +111,6 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
     //        return [InventoryController sharedInstance].parts.count;
 }
 
-- (NSString *)partNameForInventoryItem:(inventoryList)item {
-    switch (item) {
-        case inventoryListGoControl:
-            return @"GO Control";
-            break;
-        case inventoryListgc3:
-            return @"GC3";
-            break;
-        case inventoryListVerizonCell:
-            return @"Verizon";
-            break;
-        case inventoryListATandTCell:
-            return @"AT&T";
-            break;
-        case inventoryListTHINDW:
-            return @"Thin DW";
-            break;
-        case inventoryListrecessedDW:
-            return @"Recessed DW";
-            break;
-        case inventoryListMotion:
-            return @"Motion";
-            break;
-        case inventoryListGlassBreak:
-            return @"GlassBreak";
-            break;
-        case inventoryListSmoke:
-            return @"Smoke";
-            break;
-        case inventoryListCarbon:
-            return @"Carbon";
-            break;
-        case inventoryListFireFighter:
-            return @"Fire Fighter";
-            break;
-        case inventoryListMedPendant:
-            return @"Med Pendant";
-            break;
-        case inventoryListKeyFOB:
-            return @"Key FOB";
-            break;
-        case inventoryListSuperSwitch:
-            return @"Super Switch";
-            break;
-        case inventoryListWirelessKeypad:
-            return @"Wireless KeyPad";
-            break;
-        case inventoryListTS1Keypad:
-            return @"TS1 Keypad";
-            break;
-        case inventoryListGDReceiver:
-            return @"GD Receiver";
-            break;
-        case inventoryList900mhzTrans:
-            return @"900mhz Receiver";
-            break;
-        case inventoryListGETakeover:
-            return @"GE Takeover";
-            break;
-        case inventoryListImageSensor:
-            return @"Image Sensor";
-            break;
-        case inventoryListHD100Camera:
-            return @"HD100 Camera";
-            break;
-        case inventoryListDoorLockGold:
-            return @"Door Lock Gold";
-            break;
-        case inventoryListDoorLockSilver:
-            return @"Door Lock Silver";
-            break;
-        case inventoryListDoorLockbronze:
-            return @"Door Lock Bronze";
-            break;
-        case inventoryListThermostat:
-            return @"Thermostat";
-            break;
-        case inventoryListMyQGarage:
-            return @"MyQ Garage";
-            break;
-        case inventoryListMyQExtraDoor:
-            return @"MyQ Extra Door";
-            break;
-        case inventoryListDoorBell:
-            return @"DoorBell";
-            break;
-        case inventoryListLampModule:
-            return @"Lamp Module";
-            break;
-        case inventoryListOutDoorCamera:
-            return @"Out Door Camera";
-            break;
-        case inventoryList5AmpBattery:
-            return @"5 Amp Battery";
-            break;
-        case inventoryList16point5Transformer:
-            return @"16.5 Transformer";
-            break;
-        case inventoryListYardSign:
-            return @"Yard Sign";
-            break;
-        case inventoryListSignLights:
-            return @"cell For Sign Lights";
-            break;
-        case inventoryListDecals:
-            return @"Decals";
-            break;
-        case inventoryListTakeOverKit:
-            return @"TakeOver Kit";
-            break;
-        case inventoryListFloodSensor:
-            return @"Flood Sensor";
-    }
-}
 
 //- (void)partStepperChanged:(id)sender {
 //

@@ -320,7 +320,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="DRP-Tv-Xxf" id="0tq-hU-Q8b"/>
-                                    <segue destination="LxI-ch-rzc" kind="show" id="Qb1-mE-UWJ"/>
+                                    <segue destination="LxI-ch-rzc" kind="show" identifier="partsSegue" id="Qb1-mE-UWJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

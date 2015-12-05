@@ -14,6 +14,8 @@
 #import "ButtonCell.h"
 #import "ServiceNumberTableViewController.h"
 #import "DateCell.h"
+#import "PartsTableViewController.h"
+
 
 typedef NS_ENUM(NSInteger, ServiceRow) {
     ServiceRowServiceNumber = 0,
@@ -32,6 +34,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 
 @property (nonatomic, strong)NSDictionary *serviceDictionary;
 @property (strong, nonatomic) NSMutableArray *serviceCellCount;
+@property (strong, nonatomic) Service *service;
 
 @end
 
@@ -46,7 +49,9 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
     
     [self.view endEditing:YES];
     
-    [[ServiceController sharedInstance] createServiceWithserviceNumber:self.serviceNumber address:self.address city:self.city state:self.state zipCode:self.zipCode startTime:self.startTime endTime:self.endTime servicePerformed:self.servicePerformed parts:self.parts mileage:self.mileage];
+    self.service = [Service new];
+    
+    self.service = [[ServiceController sharedInstance] createServiceWithserviceNumber:self.serviceNumber address:self.address city:self.city state:self.state zipCode:self.zipCode startTime:self.startTime endTime:self.endTime servicePerformed:self.servicePerformed parts:self.parts mileage:self.mileage];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -437,14 +442,19 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
  }
  */
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     if ([segue.identifier  isEqual: @"partsSegue"]) {
+         self.service = [[ServiceController sharedInstance] createServiceWithserviceNumber:self.serviceNumber address:self.address city:self.city state:self.state zipCode:self.zipCode startTime:self.startTime endTime:self.endTime servicePerformed:self.servicePerformed parts:self.parts mileage:self.mileage];
+         PartsTableViewController *partsTable = segue.destinationViewController;
+         partsTable.service = self.service;
+     }
+//  Get the new view controller using [segue destinationViewController].
+//  Pass the selected object to the new view controller.
  }
- */
+
 
 @end

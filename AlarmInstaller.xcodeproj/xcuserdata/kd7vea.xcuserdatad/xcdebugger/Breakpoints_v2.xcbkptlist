@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlarmInstaller/PartsTableViewController.m"
-            timestampString = "471025715.50517"
+            timestampString = "471035400.719849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-save:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlarmInstaller/PartsTableViewController.m"
+            timestampString = "471035867.317666"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-NumberEnteredInCell:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AlarmInstaller/PartsCell.m"
-            timestampString = "471027737.715496"
+            filePath = "AlarmInstaller/PartsTableViewController.m"
+            timestampString = "471035879.129463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-stepper:"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-NumberEnteredInCell:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
