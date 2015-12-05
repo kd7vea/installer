@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     // Initialization code
     self.textView.delegate = self;
+    self.textView.layer.borderWidth = .28f;
+    self.textView.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 -(void)textViewDidChange:(UITextView *)textView {

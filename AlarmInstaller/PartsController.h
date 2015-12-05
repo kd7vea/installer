@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Service.h"
 #import "InventoryItem+CoreDataProperties.h"
+#import "ServiceController.h"
+
 
 @interface PartsController : NSObject
 

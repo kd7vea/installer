@@ -55,9 +55,9 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
 };
 
 
-@interface PartsTableViewController ()
+@interface PartsTableViewController () <PartsCellDelegate>
 
-@property(nullable, nonatomic, retain)NSString *goControl;
+@property(strong, nonatomic, retain)NSString *goControl;
 @property(nullable, nonatomic, retain)NSString *gc3;
 @property(nullable, nonatomic, retain)NSString *verizonCell;
 @property(nullable, nonatomic, retain)NSString *atandtCell;
@@ -107,7 +107,14 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
     
     [self.view endEditing:YES];
     
+#warning I need to tie my service number to this because the service number will be distinct
     [[PartsController sharedInstance] createPartsWithpartName:self.partName quantity:self.quantity];
+    Service *service = [Service new];
+    InventoryItem *part1 = [InventoryItem new];
+    part1.partName = @"";
+    part1.quantity = @2;
+    part1.service = service;
+    
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -123,12 +130,12 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     PartsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"partsCell"];
+    cell.delegate = self;
     inventoryList item = indexPath.row;
     NSString *partName = [self partNameForInventoryItem:item];
     cell.partLabel.text = partName;
     return cell;
-    
-    
+
 }
 
 
@@ -272,7 +279,7 @@ typedef NS_ENUM(NSUInteger, inventoryList) {
 
 #pragma mark - Label Cell Delegate
 
-- (void)numberEnteredInCell:(PartsCell *)cell {
+- (void)NumberEnteredInCell:(PartsCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     inventoryList row = indexPath.row;
     

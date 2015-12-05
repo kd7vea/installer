@@ -31,6 +31,7 @@
    // NSLog(@"%f", [stepper value]);
     NSInteger partQuantity = [stepper value];
     self.partQuantity.text = [NSString stringWithFormat:@"%d", (int)partQuantity];
+    [self.delegate NumberEnteredInCell:self];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -46,14 +47,12 @@
     
     self.partStepper.value = newValue;
     
+    [self.delegate NumberEnteredInCell:self];
+
     return YES;
 }
 
 #pragma mark - Text Field Delegate
-
-- (void)numberEnteredInCell:(PartsCell *)cell {
-    [self.delegate NumberEnteredInCell:self];
-}
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

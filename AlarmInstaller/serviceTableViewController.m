@@ -389,13 +389,13 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 }
 
 - (BOOL)dateFieldShouldReturn:(DateCell *)dateField{
-    
     [dateField resignFirstResponder];
     
     return YES;
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+   [textField resignFirstResponder];
     
     return YES;
 }

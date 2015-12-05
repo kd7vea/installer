@@ -11,5 +11,6 @@
 @interface MileageCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *businessMIleage;
 @property (weak, nonatomic) IBOutlet UITextField *personalMileage;
-
+@property (weak, nonatomic) IBOutlet UITextField *startDate;
+@property (weak, nonatomic) IBOutlet UITextField *endDate;
 @end

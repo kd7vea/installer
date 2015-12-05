@@ -10,6 +10,7 @@
 //
 
 #import "Service.h"
+#import "InventoryItem+CoreDataProperties.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

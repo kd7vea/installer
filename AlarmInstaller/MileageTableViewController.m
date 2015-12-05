@@ -77,12 +77,6 @@ typedef NS_ENUM(NSInteger, Mileage) {
 -(UITableViewCell *)cellForStartDate {
     DateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"dateCell"];
     cell.label.text = @"Start Time";
-    
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    [dateFormatter setDateFormat:@"MM /d /y"];
-    NSString *date = [dateFormatter stringFromDate:self.date;
-
-    
     return cell;
 }
 
@@ -114,6 +108,12 @@ typedef NS_ENUM(NSInteger, Mileage) {
    
 }
 
+- (BOOL)dateFieldShouldReturn:(DateCell *)dateField{
+    
+    [dateField resignFirstResponder];
+    
+    return YES;
+}
 
 
 
