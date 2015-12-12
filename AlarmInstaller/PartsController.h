@@ -56,13 +56,16 @@ typedef NS_ENUM(NSInteger, inventoryList) {
 @interface PartsController : NSObject
 
 
-@property (nullable, nonatomic, retain)NSArray *parts;
+@property (readonly, nonatomic, retain, nullable)NSArray *parts;
 @property (nullable, nonatomic, retain)NSString *partName;
 @property (nullable, nonatomic, retain)NSNumber *quantity;
 
 + (PartsController *)sharedInstance;
 
--(InventoryItem *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity;
+-(InventoryItem *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity service:(Service *)service;
 
 - (NSString *)partNameForInventoryItem:(inventoryList)item ;
+
+-(void)saveToPersistentStorage;
+
 @end

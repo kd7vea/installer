@@ -63,25 +63,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    NSSet *set = self.service.part;
+    if (self.service.part.count == 0) {
+        for (int i = 0 ; i < 37; i++) {
+            [[PartsController sharedInstance] createPartsWithpartName:[[PartsController sharedInstance] partNameForInventoryItem:i] quantity:@0 service:self.service];
+
+        }
+    }
 }
 
 - (IBAction)save:(id)sender {
     
     [self.view endEditing:YES];
     
-    NSMutableArray *partsArray = [NSMutableArray new];
+//    NSMutableArray *partsArray = [NSMutableArray new];
     
 
-    [[PartsController sharedInstance] createPartsWithpartName:self.partName quantity:self.quantity];
-    
-    for (int i=0; i < 37; i++) {
-        
-        InventoryItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-        item.partName = [[PartsController sharedInstance] partNameForInventoryItem:i];
-        item.quantity = @0;
-        item.service = self.service;
-    }
-    
+//    [[PartsController sharedInstance] createPartsWithpartName:self.partName quantity:self.quantity];
+//    
+//    for (int i=0; i < 37; i++) {
+//        
+//        InventoryItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+//        item.partName = [[PartsController sharedInstance] partNameForInventoryItem:i];
+//        item.quantity = @0;
+//        item.service = self.service;
+//    }
+//    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -97,11 +104,16 @@
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     PartsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"partsCell"];
     cell.delegate = self;
-    inventoryList item = indexPath.row;
-    NSString *partName = [[PartsController sharedInstance] partNameForInventoryItem:item];
-    cell.partLabel.text = partName;
+    InventoryItem *goodItem = [PartsController sharedInstance].parts[indexPath.row];
+    for (InventoryItem *item in [PartsController sharedInstance].parts) {
+        if (item.service == self.service) {
+            cell.partLabel.text = goodItem.partName;
+            NSString *string = [goodItem.quantity stringValue];
+            cell.partQuantity.text = string;
+            return cell;
+        }
+    }
     return cell;
-
 }
 
 
@@ -134,12 +146,21 @@
 - (void)NumberEnteredInCell:(PartsCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     inventoryList row = indexPath.row;
+    InventoryItem *part = [PartsController sharedInstance].parts[indexPath.row];
+    
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    
     
     switch (row) {
             
         case inventoryListGoControl: {
             NSString *goControl = cell.partQuantity.text;
             self.goControl = goControl;
+            NSNumber *number = [formatter numberFromString:self.goControl];
+            part.quantity = number;
+            [[PartsController sharedInstance] saveToPersistentStorage];
+            
             break;
         }
         case inventoryListgc3: {

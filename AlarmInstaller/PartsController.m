@@ -26,10 +26,11 @@
     return sharedInstance;
 }
 
--(InventoryItem *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity{
+-(InventoryItem *)createPartsWithpartName:(NSString *)partName quantity:(NSNumber *)quantity service:(Service *)service{
     InventoryItem *parts = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     parts.partName = partName;
     parts.quantity = quantity;
+    parts.service = service;
     
     
     //this line calls the saveToPersistentStorageMethod(CRUD Update Method)
