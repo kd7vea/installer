@@ -3,7 +3,7 @@
     <entity name="InventoryItem" representedClassName="InventoryItem" syncable="YES">
         <attribute name="partName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="part" inverseEntity="Service" syncable="YES"/>
+        <relationship name="serviceParts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServiceParts" inverseName="part" inverseEntity="ServiceParts" syncable="YES"/>
     </entity>
     <entity name="Mileage" representedClassName="Mileage" syncable="YES">
         <attribute name="business" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,11 +23,18 @@
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zipCode" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="part" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InventoryItem" inverseName="service" inverseEntity="InventoryItem" syncable="YES"/>
+        <relationship name="serviceParts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServiceParts" inverseName="service" inverseEntity="ServiceParts" syncable="YES"/>
+    </entity>
+    <entity name="ServiceParts" representedClassName="ServiceParts" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quanitity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="part" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryItem" inverseName="serviceParts" inverseEntity="InventoryItem" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="serviceParts" inverseEntity="Service" syncable="YES"/>
     </entity>
     <elements>
         <element name="InventoryItem" positionX="36" positionY="81" width="128" height="90"/>
         <element name="Mileage" positionX="-18" positionY="27" width="128" height="120"/>
         <element name="Service" positionX="9" positionY="54" width="128" height="210"/>
+        <element name="ServiceParts" positionX="45" positionY="171" width="128" height="105"/>
     </elements>
 </model>

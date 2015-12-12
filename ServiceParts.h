@@ -1,5 +1,5 @@
 //
-//  Service.h
+//  ServiceParts.h
 //  AlarmInstaller
 //
 //  Created by Jake Estepp on 12/12/15.
@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class InventoryItem, Service;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Service : NSManagedObject
+@interface ServiceParts : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Service+CoreDataProperties.h"
+#import "ServiceParts+CoreDataProperties.h"

@@ -2,7 +2,7 @@
 //  Service+CoreDataProperties.h
 //  AlarmInstaller
 //
-//  Created by Jake Estepp on 12/5/15.
+//  Created by Jake Estepp on 12/12/15.
 //  Copyright © 2015 Jake Estepp. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -10,7 +10,6 @@
 //
 
 #import "Service.h"
-#import "InventoryItem+CoreDataProperties.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,16 +25,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSDate *startTime;
 @property (nullable, nonatomic, retain) NSString *state;
 @property (nullable, nonatomic, retain) NSNumber *zipCode;
-@property (nullable, nonatomic, retain) NSSet<InventoryItem *> *part;
+@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *serviceParts;
 
 @end
 
 @interface Service (CoreDataGeneratedAccessors)
 
-- (void)addPartObject:(InventoryItem *)value;
-- (void)removePartObject:(InventoryItem *)value;
-- (void)addPart:(NSSet<InventoryItem *> *)values;
-- (void)removePart:(NSSet<InventoryItem *> *)values;
+- (void)addServicePartsObject:(NSManagedObject *)value;
+- (void)removeServicePartsObject:(NSManagedObject *)value;
+- (void)addServiceParts:(NSSet<NSManagedObject *> *)values;
+- (void)removeServiceParts:(NSSet<NSManagedObject *> *)values;
 
 @end
 

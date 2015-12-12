@@ -30,7 +30,7 @@
     InventoryItem *parts = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     parts.partName = partName;
     parts.quantity = quantity;
-    parts.service = service;
+//    parts.service = service;
     
     
     //this line calls the saveToPersistentStorageMethod(CRUD Update Method)

@@ -1,5 +1,5 @@
 //
-//  InventoryItem+CoreDataProperties.m
+//  ServiceParts+CoreDataProperties.m
 //  AlarmInstaller
 //
 //  Created by Jake Estepp on 12/12/15.
@@ -9,12 +9,13 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "InventoryItem+CoreDataProperties.h"
+#import "ServiceParts+CoreDataProperties.h"
 
-@implementation InventoryItem (CoreDataProperties)
+@implementation ServiceParts (CoreDataProperties)
 
-@dynamic partName;
-@dynamic quantity;
-@dynamic serviceParts;
+@dynamic name;
+@dynamic quanitity;
+@dynamic service;
+@dynamic part;
 
 @end

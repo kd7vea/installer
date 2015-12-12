@@ -64,12 +64,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    NSSet *set = self.service.part;
-    if (self.service.part.count == 0) {
-        for (int i = 0 ; i < 37; i++) {
-            [[PartsController sharedInstance] createPartsWithpartName:[[PartsController sharedInstance] partNameForInventoryItem:i] quantity:@0 service:self.service];
-
-        }
-    }
+//    if (self.service.part.count == 0) {
+//        for (int i = 0 ; i < 37; i++) {
+//            [[PartsController sharedInstance] createPartsWithpartName:[[PartsController sharedInstance] partNameForInventoryItem:i] quantity:@0 service:self.service];
+//
+//        }
+//    }
 }
 
 - (IBAction)save:(id)sender {
@@ -105,21 +105,21 @@
     PartsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"partsCell"];
     cell.delegate = self;
     InventoryItem *goodItem = [PartsController sharedInstance].parts[indexPath.row];
-    for (InventoryItem *item in [PartsController sharedInstance].parts) {
-        if (item.service == self.service) {
-            cell.partLabel.text = goodItem.partName;
-            NSString *string = [goodItem.quantity stringValue];
-            cell.partQuantity.text = string;
-            return cell;
-        }
-    }
+//    for (InventoryItem *item in [PartsController sharedInstance].parts) {
+//        if (item.service == self.service) {
+//            cell.partLabel.text = goodItem.partName;
+//            NSString *string = [goodItem.quantity stringValue];
+//            cell.partQuantity.text = string;
+//            return cell;
+//        }
+//    }
     return cell;
 }
 
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 37;
+    return 0;
     //        return [InventoryController sharedInstance].parts.count;
 }
 

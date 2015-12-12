@@ -2,7 +2,7 @@
 //  InventoryItem.m
 //  AlarmInstaller
 //
-//  Created by Jake Estepp on 10/22/15.
+//  Created by Jake Estepp on 12/12/15.
 //  Copyright © 2015 Jake Estepp. All rights reserved.
 //
 
