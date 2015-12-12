@@ -16,5 +16,6 @@
 
 -(void) updateWithPartName: (NSString *)name toAmount:(NSNumber *)number;
 + (InventoryController *)sharedInstance;
+-(void) createInitialInventory;
 
 @end

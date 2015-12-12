@@ -69,7 +69,7 @@
     part9.partName = @"Smoke";
     part9.quantity = @0;
     
-    InventoryItem *part10 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part10 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part10.partName = @"Carbon";
     part10.quantity = @0;
     
@@ -105,81 +105,83 @@
     part18.partName = @"900MHZ Trans";
     part18.quantity = @0;
     
-    InventoryItem  *part19 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part19 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part19.partName = @"GE Takeover";
     part19.quantity = @0;
     
-    InventoryItem *part20 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part20 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part20.partName = @"Image Sersor";
     part20.quantity = @0;
     
-    InventoryItem *part21 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part21 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part21.partName = @"HD-100 Camera";
     part21.quantity = @0;
     
-    InventoryItem *part22 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part22 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part22.partName = @"Door Locl Gold";
     part22.quantity = @0;
     
-    InventoryItem *part23 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part23 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part23.partName = @"Door Lock Silver";
     part23.quantity = @0;
     
-    InventoryItem *part24 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part24 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part24.partName = @"Door Lock Bronze";
     part24.quantity = @0;
     
-    InventoryItem *part25 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part25 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part25.partName = @"Thermostat";
     part25.quantity = @0;
     
-    InventoryItem *part26 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part26 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part26.partName = @"MY-Q Garage";
     part26.quantity = @0;
     
-    InventoryItem *part27 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part27 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part27.partName = @"MY-Q Extra door";
     part27.quantity = @0;
     
-    InventoryItem *part28 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part28 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part28.partName = @"Door Bell";
     part28.quantity = @0;
     
-    InventoryItem *part29 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part29 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part29.partName = @"Lamp Module";
     part29.quantity = @0;
     
-    InventoryItem *part30 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part30 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part30.partName = @"OutDoor Camera";
     part30.quantity = @0;
     
-    InventoryItem *part31 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part31 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part31.partName = @"5Amp Battery";
     part31.quantity = @0;
     
-    InventoryItem *part32 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part32 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part32.partName = @"16.5 Transformer";
     part32.quantity = @0;
     
-    InventoryItem *part33 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part33 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part33.partName = @"YardSigns";
     part33.quantity = @0;
     
-    InventoryItem *part34 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part34 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part34.partName = @"Sign Lights";
     part34.quantity = @0;
     
-    InventoryItem *part35 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part35 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part35.partName = @"Decals";
     part35.quantity = @0;
     
-    InventoryItem *part36 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part36 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part36.partName = @"Take Over Kit";
     part36.quantity = @0;
     
-    InventoryItem *part37 = [NSEntityDescription insertNewObjectForEntityForName:@"inventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    InventoryItem *part37 = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     part37.partName = @"flood Sersor";
     part37.quantity = @0;
+    
+    [self save];
 }
 
 
@@ -195,7 +197,7 @@
 
 //CRUD Update Method
 -(void)save{
-    
+    [[Stack sharedInstance].managedObjectContext save:nil];
 }
 
 

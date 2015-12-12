@@ -13,6 +13,7 @@
 #import "InventoryItem+CoreDataProperties.h"
 #import "PartsController.h"
 #import "Stack.h"
+#import "ServiceParts.h"
 
 
 
@@ -104,23 +105,17 @@
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     PartsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"partsCell"];
     cell.delegate = self;
-    InventoryItem *goodItem = [PartsController sharedInstance].parts[indexPath.row];
-//    for (InventoryItem *item in [PartsController sharedInstance].parts) {
-//        if (item.service == self.service) {
-//            cell.partLabel.text = goodItem.partName;
-//            NSString *string = [goodItem.quantity stringValue];
-//            cell.partQuantity.text = string;
-//            return cell;
-//        }
-//    }
+    InventoryItem *goodItem = [InventoryController sharedInstance].parts[indexPath.row];
+    cell.partLabel.text = goodItem.partName;
+    NSString *string = [goodItem.quantity stringValue];
+    cell.partQuantity.text = string;
     return cell;
 }
 
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-    //        return [InventoryController sharedInstance].parts.count;
+    return [InventoryController sharedInstance].parts.count;
 }
 
 

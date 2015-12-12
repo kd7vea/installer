@@ -48,9 +48,7 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
 - (IBAction)save:(id)sender {
     
     [self.view endEditing:YES];
-    
-    self.service = [Service new];
-    
+        
     self.service = [[ServiceController sharedInstance] createServiceWithserviceNumber:self.serviceNumber address:self.address city:self.city state:self.state zipCode:self.zipCode startTime:self.startTime endTime:self.endTime servicePerformed:self.servicePerformed parts:self.parts mileage:self.mileage];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -448,7 +446,6 @@ typedef NS_ENUM(NSInteger, ServiceRow) {
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if ([segue.identifier  isEqual: @"partsSegue"]) {
-         self.service = [[ServiceController sharedInstance] createServiceWithserviceNumber:self.serviceNumber address:self.address city:self.city state:self.state zipCode:self.zipCode startTime:self.startTime endTime:self.endTime servicePerformed:self.servicePerformed parts:self.parts mileage:self.mileage];
          PartsTableViewController *partsTable = segue.destinationViewController;
          partsTable.service = self.service;
      }

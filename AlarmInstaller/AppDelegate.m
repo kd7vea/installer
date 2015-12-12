@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "InventoryController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, assign) BOOL appOppened;
 
 @end
 
@@ -17,6 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.appOppened = [[NSUserDefaults standardUserDefaults] boolForKey:@"key"];
+    if (self.appOppened == NO) {
+        [[InventoryController sharedInstance] createInitialInventory];
+        self.appOppened = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.appOppened forKey:@"key"];
+    }
     return YES;
 }
 
